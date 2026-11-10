@@ -1,0 +1,31 @@
+{
+  "name": "golex-golden-ginger",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GOLEX Ginger Instant Coffee 5 IN 1 — The Golden Ginger Experience. Luxury 9:16 commercial built in React with Remotion.",
+  "scripts": {
+    "dev": "remotion studio src/index.ts",
+    "start": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts GolexCommercial out/GOLEX_Golden_Ginger_Experience_1080x1920.mp4 --codec=h264 --crf=18",
+    "render:khmer": "remotion render src/index.ts GolexKhmer out/GOLEX_Golden_Ginger_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
+    "still": "remotion still src/index.ts GolexCommercial out/poster.png --frame=1680",
+    "typecheck": "tsc --noEmit",
+    "sfx": "python3 scripts/generate-sfx.py",
+    "sprites": "python3 scripts/extract-sprites.py",
+    "promo-audio": "python3 scripts/generate-promo-audio.py"
+  },
+  "dependencies": {
+    "@fontsource/manrope": "^5.2.0",
+    "@fontsource/montserrat": "^5.2.0",
+    "@fontsource/noto-sans-khmer": "^5.3.0",
+    "@fontsource/playfair-display": "^5.2.0",
+    "@remotion/cli": "4.0.542",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "typescript": "^5.6.0"
+  }
+}
