@@ -22,15 +22,15 @@ export const LogoScene: React.FC<S> = ({ L, khmer = false }) => (
     <AnamorphicFlare y={900} end={0.95} />
     <Glow cx={540} cy={900} r={650} start={0.3} end={L} />
     <GoldRings cx={540} cy={900} r={400} start={0.9} end={L} opacity={0.8} />
-    <Hero src={asset('logo.png')} cx={540} cy={900} w={700} start={0.55} end={L} ein={1.3} scale0={0.8} rise={30} float={6} />
-    <LogoSheen start={1.7} box={{ left: 190, top: 691, width: 700, height: 418 }} />
+    <Hero src={asset('logo-brand.png')} cx={540} cy={900} w={700} start={0.55} end={L} ein={1.3} scale0={0.8} rise={30} float={6} />
+    <LogoSheen start={1.7} box={{ left: 190, top: 900 - 203, width: 700, height: 406 }} />
     <Sparkle x={830} y={760} at={1.55} />
     <Sparkle x={260} y={1030} at={1.95} />
-    <KineticText text={khmer ? 'បទពិសោធន៍ខ្ញីមាស' : 'The Golden Ginger'} top={1250} start={1.2} end={L} size={khmer ?  90 : 86} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
+    <KineticText text={khmer ? 'បទពិសោធន៍ថ្មី|កាហ្វេខ្ញី 5IN1' : 'The Golden Ginger'} top={1250} start={1.2} end={L} size={khmer ?  90 : 86} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
     <Line top={1435}>
       <Reveal start={1.75} end={L} mode="wipe" ein={0.9}>
         <GoldText family={khmer ? 'khmer' : 'sans'} weight={500} size={khmer ? 45 : 30} tracking={khmer ? 0 : 20} variant="cream">
-          {khmer ? 'បទពិសោធន៍' : 'EXPERIENCE'}
+          {khmer ? 'បទពិសោធន៍ថ្មី' : 'NEW EXPERIENCE'}
         </GoldText>
       </Reveal>
     </Line>
@@ -241,14 +241,14 @@ export const EndScene: React.FC<S> = ({ L, khmer = false }) => (
     <Drifter src={asset('ginger1.png')} w={150} from={[110, 1300]} to={[140, 1220]} start={0.6} end={L + 5} rot0={-15} rotSpeed={8} z={6} />
     <Drifter src={spr('bean5.png')} w={110} from={[960, 700]} to={[940, 620]} start={0.7} end={L + 5} rot0={30} rotSpeed={-12} z={6} />
     <Drifter src={spr('bean2.png')} w={160} from={[950, 1360]} to={[925, 1280]} start={0.8} end={L + 5} blur={4} rot0={-40} rotSpeed={10} z={6} />
-    <Hero src={asset('logo.png')} cx={540} cy={290} w={560} start={0.2} end={L + 5} ein={1} scale0={0.85} rise={20} float={4} z={7} />
-    <LogoSheen start={1.0} box={{ left: 260, top: 290 - 167, width: 560, height: 334 }} />
+    <Hero src={asset('logo-brand.png')} cx={540} cy={290} w={560} start={0.2} end={L + 5} ein={1} scale0={0.85} rise={20} float={4} z={7} />
+    <LogoSheen start={1.0} box={{ left: 260, top: 290 - 162, width: 560, height: 325 }} />
     <Hero src={asset('pack.png')} cx={420} cy={960} w={740} start={0.35} end={L + 5} ein={1.2} rise={90} scale0={0.85} sway={3} float={7} z={2} />
     <Hero src={asset('sachet.png')} cx={860} cy={1010} w={290} start={0.5} end={L + 5} ein={1.2} rise={90} scale0={0.85} tilt={7} float={9} z={3} />
     <Hero src={asset('cup.png')} cx={380} cy={1330} w={520} start={0.65} end={L + 5} ein={1.2} rise={90} scale0={0.85} float={6} z={5} />
     <Sparkle x={700} y={720} at={1.3} size={110} />
     <Sparkle x={250} y={1150} at={1.8} size={90} />
-    <KineticText text={khmer ? 'បទពិសោធន៍ខ្ញីមាស' : 'The Golden Ginger Experience'} top={1535} start={0.9} end={L + 5} size={khmer ? 60 : 58} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
+    <KineticText text={khmer ? 'បទពិសោធន៍ថ្មី|កាហ្វេខ្ញី 5IN1' : 'The Golden Ginger Experience'} top={1535} start={0.9} end={L + 5} size={khmer ? 60 : 58} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
     <RuleLabel text={khmer ? 'កាហ្វេខ្ញី ៥ ក្នុង ១' : 'GINGER INSTANT COFFEE  5 IN 1'} top={1640} start={1.4} end={L + 5} family={khmer ? 'khmer' : 'sans'} weight={600} size={khmer ? 26 : 24} tracking={khmer ? 0 : 8} variant="cream" lineLength={46} gap={18} />
     <CtaButton text={khmer ? 'បញ្ជាទិញឥឡូវនេះ' : 'ORDER YOURS TODAY'} top={1722} start={1.7} end={L + 5} khmer={khmer} />
     <Line top={1840}>

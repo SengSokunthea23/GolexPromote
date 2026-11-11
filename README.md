@@ -166,3 +166,54 @@ the same grid, so if you change the song, re-measure it and update both files.
 - a bell-chord logo signature and a final warm impact
 
 Code: `src/lux/` (`timeline.ts`, `fonts.ts`, `kit.tsx`, `scenes.tsx`, `LuxCommercial.tsx`).
+
+---
+
+## v4 — Soft Luxury Edition (Khmer)
+
+Composition **GolexSoftLux** · 1080 × 1920 · 30 fps · **31 s** (a short 3.2 s title opening, then scenes of 2.7–5.3 s; choreography is written in beats, scaled by a per-scene `pace` and snapped to half-beats). This is a bright editorial theme: warm ivory and
+beige layouts, ruby product stages, glassmorphism panels, rounded product cards and split-screen compositions.
+The soundtrack is **Golden Lounge** (`public/audio/Golden Lounge - usesuno.com.mp3`) plus a synthesised SFX layer.
+
+```bash
+npm run render:soft  # out/GOLEX_Soft_Luxury_Khmer_1080x1920.mp4
+npm run sfx:soft     # re-synthesise public/audio/golex-soft-sfx.wav
+```
+
+**Palette** (`src/soft/theme.ts`):
+- backgrounds: ivory #F8F3EA, beige #E9DCCB, cream #FFF6E8
+- brand: ruby #8D1722, burgundy #4A1118, espresso #211416
+- accents: champagne #D9B66F, gold #C99B45, soft gold #EBD49C
+
+**Type:** **Hanuman**, a serif-style Khmer face, for emotional headlines; **Kantumruy Pro** for Khmer details;
+**Cormorant Garamond** italic for English headlines; **Manrope** for uppercase micro labels.
+
+**Music:** Golden Lounge starts 1.5 beats in (`MUSIC_TRIM` = 1.0 s), so the 3.17 s opening cut lands on a half-bar, and the song plays through to its own ending at about 31 s. The music dips briefly at every cut so the transition sounds come through. For longer cuts, set `MUSIC` in `src/soft/timeline.ts` to `{ jumpAt, resumeFrom }` to extend the song with a bar-aligned loop.
+
+**Beat sync:** Golden Lounge is 90 BPM (beat 0.667 s, first downbeat 0.172 s, bar 2.667 s). Every cut is on a
+downbeat. Words, cards and chips enter on beats or half-beats. `scripts/generate-soft-sfx.mjs` uses the same
+grid; its instruments live in `scripts/lib/sfx-engine.mjs`.
+
+| # | Scene | Time | Transition in | Techniques |
+|---|-------|------|---------------|------------|
+| 1 | Opening | 0.00–3.17 | soft light bloom | Khmer headline word reveals, 2.5D gold "ខ្ញីមាស", animated gold underline, the type lifts as a rounded ruby product card rises, glass chip, floating ingredients |
+| 2 | Split | 3.17–5.84 | zoom | editorial split screen: sliding Khmer headline left; pack floats out of a ruby pill right with a light sweep; glass weight panel |
+| 3 | Macro | 5.84–8.51 | blur-to-focus | packaging close-up (GOLEX crest, "5 IN 1"), slow push and pan, gold sweep |
+| 4 | Cup | 8.51–12.51 | rounded-card expansion | ruby stage, coffee pour, floating 3D cup, ingredient orbit, cup light sweep |
+| 5 | Texture | 12.51–15.17 | zoom | crema macro in a circular lens, gold rings, ingredients drifting with depth of field |
+| 6 | Ingredients | 15.17–20.51 | rounded sheet slides up | three glass ingredient cards land on the beats, then each takes focus in turn |
+| 7 | Lifestyle | 20.51–23.17 | rounded-card expansion | negative space, editorial Khmer and English headline, model in a tall rounded frame with a push-in |
+| 8 | Highlights | 23.17–25.84 | blur-to-focus | model 2 over a ruby disc, three glass feature cards with self-drawing icons (claims from the pack) |
+| 9 | Final | 25.84–31.00 | soft light bloom | burgundy horizon rises, pack, cup, sachet and ginger line-up, logo light sweeps, tagline, CTA |
+
+**Sound design**, mixed at 0.55 under the music at 0.70. Every sound is tied to a visual event:
+- soft whooshes and sweeps for transitions
+- glass UI tings for panels and cards
+- gentle pops for words
+- papery rustles for floating ingredients
+- twinkling gold for underlines and borders
+- soft and cinematic impacts
+- coffee pour, steam and warm ambience
+- light-bloom swells and a bell-chord logo signature
+
+Code: `src/soft/` (`theme.ts`, `timeline.ts`, `kit.tsx`, `scenes.tsx`, `SoftCommercial.tsx`).

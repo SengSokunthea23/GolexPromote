@@ -83,7 +83,7 @@ export const LuxCommercial: React.FC = () => {
         src={staticFile('audio/Golden Bells - usesuno.com.mp3')}
         volume={(f) => interpolate(f, [0, 6, durationInFrames - 36, durationInFrames - 1], [0, 0.78, 0.78, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })}
       />
-      <Audio src={staticFile('audio/golex-lux-sfx.wav')} volume={0.6} />
+      <Audio src={staticFile('audio/golex-lux-sfx.wav')} volume={0.5} />
     </AbsoluteFill>
   );
 };

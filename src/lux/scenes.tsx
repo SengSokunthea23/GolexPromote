@@ -24,13 +24,13 @@ export const IntroScene: React.FC<SceneProps> = ({ L }) => {
       <Glow cx={540} cy={860} r={620} start={0.4} end={E} strength={0.75} />
       <CircleDraw cx={540} cy={860} r={330} start={0.15} dur={1.5} end={E} width={3} />
       <CircleDraw cx={540} cy={860} r={390} start={0.45} dur={1.6} end={E} width={1.2} halo={false} from={90} />
-      <Item src={img('logo.png')} x={540} y={860} w={600} start={0.3} end={E} dur={1.3} dy={0} s0={1.35} blur0={40} ease="expo" bob={4} />
-      <LogoSheen start={1.55} dur={0.9} box={{ left: 240, top: 860 - 179, width: 600, height: 358 }} />
+      <Item src={img('logo-brand.png')} x={540} y={860} w={600} start={0.3} end={E} dur={1.3} dy={0} s0={1.35} blur0={40} ease="expo" bob={4} />
+      <LogoSheen start={1.55} dur={0.9} box={{ left: 240, top: 860 - 174, width: 600, height: 348 }} />
       <Sparkle x={830} y={700} at={1.6} size={120} />
       <Sparkle x={250} y={1000} at={B(3)} size={80} />
       <Lotus y={1185} start={1.0} end={E} />
-      <EnTrack text="THE GOLDEN GINGER EXPERIENCE" y={1250} start={1.15} end={E} size={36} tracking={7} ink="gold" />
-      <KhWords text="កាហ្វេខ្ញី|ពិសេស" y={1320} start={1.55} end={E} size={40} family="khmer" weight={600} ink="cream" stagger={0.16} />
+      <EnTrack text="THE GOLDEN GINGER EXPERIENCE" y={1280} start={1.15} end={E} size={36} tracking={7} ink="gold" />
+      <KhWords text="កាហ្វេខ្ញី ពិសេស" y={1350} start={1.55} end={E} size={42} family="khmer" weight={600} ink="cream" stagger={0.16} />
     </>
   );
 };
@@ -43,11 +43,11 @@ export const TitleScene: React.FC<SceneProps> = ({ L }) => {
       <Item src={spr('slice.png')} x={880} y={420} w={190} start={0.1} end={E} dur={1} dx={200} dy={-60} blur={6} r0={-60} spin={10} shadow={false} mb={30} />
       <Item src={spr('bean2.png')} x={170} y={1460} w={170} start={0.2} end={E} dur={1} dx={-200} dy={60} blur={8} r0={70} spin={-12} shadow={false} mb={30} />
       <Item src={spr('bean6.png')} x={900} y={1520} w={90} start={0.35} end={E} dur={1} dy={120} spin={20} />
-      <KhWords text="បទពិសោធន៍" y={590} start={0.05} end={E} size={112} ink="ruby" />
-      <KhWords text="ខ្ញី|មាស" y={790} start={B(1)} end={E} size={176} ink="bronze" stagger={0.2} gap={30} from="scale" />
+      <KhWords text="បទពិសោធន៍ថ្មី" y={590} start={0.05} end={E} size={112} ink="ruby" />
+      <KhWords text="កាហ្វេខ្ញី 5IN1" y={790} start={B(1)} end={E} size={150} ink="bronze" stagger={0.2} gap={30} from="scale" />
       <Lotus y={1150} start={B(2)} end={E} color={COLORS.goldDeep} width={600} />
       <EnTrack text="THE GOLDEN GINGER EXPERIENCE" y={1215} start={B(2) + 0.1} end={E} size={26} family="micro" weight={500} tracking={10} ink="ruby" />
-      <KhWords text="ខ្ញីបេនតុង|·|កាហ្វេពិសេស|·|ស្ករត្នោត" y={1290} start={B(3)} end={E} size={32} family="khmer" weight={600} ink="bronze" stagger={0.08} gap={14} />
+      <KhWords text="ខ្ញីបេនតុង|·|កាហ្វេពិសេស|·|ស្ករត្នោត" y={1290} start={B(3)} end={E} size={38} family="khmer" weight={600} ink="bronze" stagger={0.08} gap={14} />
     </>
   );
 };
@@ -155,7 +155,6 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L }) => {
 /* 06 · BENEFITS — sachet turns in, five claims (copied from the pack) on half-beats ────────── */
 const stroke = { fill: 'none', stroke: COLORS.champagne, strokeWidth: 3, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 const CLAIMS: [React.ReactNode, string][] = [
-  [ICONS.heart, 'គ្មានកូឡេស្តេរ៉ុល'],
   [ICONS.drop, 'គ្មានជាតិខ្លាញ់បំប្លែង'],
   [ICONS.flask, 'គ្មានរសជាតិសិប្បនិម្មិត'],
   [ICONS.leaf, 'ខ្ញីបេនតុងគុណភាពខ្ពស់'],
@@ -171,7 +170,7 @@ export const BenefitsScene: React.FC<SceneProps> = ({ L }) => {
       <KhWords text="គុណភាព|ក្នុង|គ្រប់កញ្ចប់" y={160} start={0.05} end={E} size={64} ink="gold" stagger={0.12} gap={18} />
       <EnTrack text="GOODNESS IN EVERY SACHET" y={340} start={0.3} end={E} size={24} family="micro" weight={500} tracking={9} />
       {CLAIMS.map(([icon, text], i) => (
-        <Chip key={text} x={440} y={560 + i * 150} w={610} start={0.2 + i * (BEAT / 2)} end={E} icon={icon} text={text} />
+        <Chip key={text} x={440} y={700 + i * 150} w={610} start={0.2 + i * (BEAT / 2)} end={E} icon={icon} text={text} />
       ))}
     </>
   );
@@ -234,8 +233,8 @@ export const EndScene: React.FC<SceneProps> = ({ L }) => {
       <Glow cx={540} cy={960} r={860} start={0.05} end={E} strength={0.9} />
       <CircleDraw cx={540} cy={960} r={430} start={0.1} dur={1.2} end={E} width={2.5} />
       <CircleDraw cx={540} cy={960} r={500} start={0.3} dur={1.4} end={E} width={1} halo={false} from={90} />
-      <Item src={img('logo.png')} x={540} y={250} w={470} start={0.35} end={E} dur={0.9} dy={-60} s0={0.8} blur0={20} bob={3} z={8} />
-      <LogoSheen start={1.25} dur={0.9} box={{ left: 305, top: 250 - 140, width: 470, height: 280 }} />
+      <Item src={img('logo-brand.png')} x={540} y={250} w={470} start={0.35} end={E} dur={0.9} dy={-60} s0={0.8} blur0={20} bob={3} z={8} />
+      <LogoSheen start={1.25} dur={0.9} box={{ left: 305, top: 250 - 136, width: 470, height: 272 }} />
       <Item src={img('pack.png')} mask={PACK_MASK} x={540} y={930} w={640} start={0} end={E} dur={1} dy={220} s0={0.7} blur0={20} sway={3} bob={6} z={4} />
       <Item src={img('sachet.png')} x={895} y={1000} w={230} start={0.15} end={E} dur={1} dx={260} dy={60} r0={30} rot={8} blur0={14} mb={40} bob={8} phase={1} z={3} />
       <Item src={img('cup.png')} x={290} y={1210} w={520} start={0.25} end={E} dur={1} dx={-260} dy={80} blur0={14} mb={40} bob={6} phase={2} z={6} />
@@ -244,7 +243,7 @@ export const EndScene: React.FC<SceneProps> = ({ L }) => {
       <Item src={spr('bean2.png')} x={150} y={760} w={110} start={0.5} end={E} dy={120} blur={3} spin={-12} z={2} />
       <Sparkle x={760} y={640} at={0.9} size={130} />
       <Sparkle x={210} y={1100} at={1.6} size={100} />
-      <KhWords text="បទពិសោធន៍|ខ្ញីមាស" y={1415} start={0.6} end={E} size={84} ink="gold" stagger={0.18} gap={22} />
+      <KhWords text="បទពិសោធន៍ថ្មី|កាហ្វេខ្ញី 5IN1" y={1420} start={0.6} end={E} size={70} ink="gold" stagger={0.18} gap={22} />
       <EnTrack text="GOLEX — THE GOLDEN GINGER EXPERIENCE" y={1585} start={1.0} end={E} size={27} family="lux" tracking={4} ink="cream" stagger={0.015} />
       <Cta text="បញ្ជាទិញឥឡូវនេះ" y={1665} start={1.5} end={E} />
       <div style={{ position: 'absolute', left: 0, width: 1080, top: 1810, textAlign: 'center', fontFamily: LF.micro, fontWeight: 300, fontSize: 18, letterSpacing: 4, color: COLORS.cream, opacity: 0.8 }}>
