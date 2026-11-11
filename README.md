@@ -119,3 +119,50 @@ npm run promo-audio                         # rebuild music + sound design
 Files: `src/promo/` (timeline.ts · PromoBackground · parts.tsx · scenes.tsx · PromoCommercial.tsx), `public/promo/` (cut-outs + logo), `scripts/generate-promo-audio.py`.
 Scenes: logo reveal → cup hero → 3D pack reveal → sachet + pack claims → three ingredients → model 1 → model 2 → end card with CTA.
 It renders at 30 fps; change `P_FPS` in `src/promo/timeline.ts` for 60.
+
+---
+
+## v3 — Royal Silk · សូត្រមាស (Khmer luxury cut)
+
+Composition **GolexKhmerLux** · 1080 × 1920 · 30 fps · 30 s. This is a new visual theme, written Khmer-first and
+built from the product stills. The soundtrack is **Golden Bells** (`public/audio/Golden Bells - usesuno.com.mp3`)
+plus a synthesised SFX layer.
+
+```bash
+npm run render:lux   # out/GOLEX_Royal_Silk_Khmer_1080x1920.mp4
+npm run sfx:lux      # re-synthesise public/audio/golex-lux-sfx.wav (pure Node, no Python needed)
+```
+
+**Beat sync.** "Golden Bells" was measured at 102.9 BPM (beat 0.583 s, first downbeat 0.356 s). Every scene cut
+lands on a downbeat (`bar(n)` in `src/lux/timeline.ts`). Text and cards enter on beats or half-beats. The
+camera punches on the music lift (7.35 s) and on the final hit (26.01 s). `scripts/generate-lux-sfx.mjs` uses
+the same grid, so if you change the song, re-measure it and update both files.
+
+**Theme.**
+- Burgundy "silk" backdrops with drifting light pools and faint rotating guide circles.
+- One cream showcase stage (the title).
+- **Moul** for gold Khmer headlines, **Kantumruy Pro** for Khmer supporting copy, and **Italiana**,
+  **Playfair Display** italic and **Manrope** for English accents.
+- Khmer motifs: a lotus/kbach divider and temple-arch frames for the ingredient cards and the lifestyle shot.
+
+| # | Scene | Time | Transition in | Key techniques |
+|---|-------|------|---------------|----------------|
+| 1 | Intro | 0.00–2.69 | blur-to-focus | gold circle draws with a comet head, logo pulls from blur into focus, logo sheen, lotus divider, tracked English |
+| 2 | Title (cream) | 2.69–5.02 | circle mask + gold ring | Khmer word-by-word masked rise, "ខ្ញីមាស" scale-in on beat 2, parallax beans and ginger |
+| 3 | Pack | 5.02–9.69 | circle mask | arch-mask product reveal, 2.5D turn, gold outline trace, orbiting ingredients, copy swap on the music lift |
+| 4 | Cup | 9.69–14.35 | zoom-through | coffee pour plus splash ripple, 3D ingredient orbit passing in front of and behind the cup, steam, sensory words on half-beats |
+| 5 | Ingredients | 14.35–19.01 | directional whip ← | three temple-arch cards land on beats, parallax group push |
+| 6 | Benefits | 19.01–21.35 | directional whip → | sachet turns in, 5 pack claims as chips on half-beats, with motion blur |
+| 7 | Lifestyle 1 | 21.35–23.68 | circle mask | model steps out of a gold temple arch |
+| 8 | Lifestyle 2 | 23.68–26.01 | lift + blur | slow push-in, gold circle on the cup, callout with a leader line |
+| 9 | End card | 26.01–30.00 | zoom on the big hit | hero line-up, logo signature sheen, tagline, CTA "បញ្ជាទិញឥឡូវនេះ" |
+
+**Sound design** (`golex-lux-sfx.wav`, mixed at 0.6 under the music at 0.78):
+- whooshes matched to each transition type
+- cinematic impacts and sub booms on the big hits
+- twinkling "gold draw" glissandi for line animations
+- pops and ticks for text, cards and chips
+- coffee pour with bubble chirps, a steam bed and warm room ambience
+- a bell-chord logo signature and a final warm impact
+
+Code: `src/lux/` (`timeline.ts`, `fonts.ts`, `kit.tsx`, `scenes.tsx`, `LuxCommercial.tsx`).
