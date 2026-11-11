@@ -53,7 +53,8 @@ export const Hero: React.FC<HeroProps> = ({ src, cx, cy, w, start, end, ein = 1.
         style={{
           width: '100%',
           display: 'block',
-          filter: 'drop-shadow(0 38px 46px rgba(23,11,13,0.6))'
+          filter: 'drop-shadow(0 38px 46px rgba(23,11,13,0.6))',
+          translate: '7.6px 28.6px'
         }}
       />
     </div>
@@ -263,7 +264,7 @@ export const BenefitRow: React.FC<{ icon: keyof typeof ICONS; text: string; top:
           {ICONS[icon]}
         </svg>
       </div>
-      <div style={{ fontFamily: FONTS[khmer ? 'khmer' : 'sans'], fontWeight: 600, fontSize: khmer ? 27 : 31, letterSpacing: khmer ? 0 : 2.5, lineHeight: 1.3, color: COLORS.cream, textShadow: `0 3px 10px ${rgba(COLORS.espresso, 0.8)}` }}>{text}</div>
+      <div style={{ fontFamily: FONTS[khmer ? 'khmer' : 'sans'], fontWeight: 600, fontSize: khmer ? 32 : 31, letterSpacing: khmer ? 0 : 2.5, lineHeight: 1.3, color: COLORS.cream, textShadow: `0 3px 10px ${rgba(COLORS.espresso, 0.8)}` }}>{text}</div>
     </div>
   );
 };
