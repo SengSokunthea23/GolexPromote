@@ -110,7 +110,7 @@ const BENEFITS: [keyof typeof import('./parts').ICONS, string][] = [
 ];
 const KHMER_BENEFITS: [keyof typeof import('./parts').ICONS, string][] = [
   ['drop', 'គ្មានជាតិខ្លាញ់'],
-  ['flask', 'មិនមានសារធាតុបន្ថែម'],
+  ['flask', 'គ្មានសារធាតុបន្ថែម'],
   ['leaf', 'ផលិតពីខ្ញីបេនតុងគុណភាពខ្ពស់'],
   ['bowl', 'ស្ករត្នោតគុណភាពខ្ពស់'],
 ];

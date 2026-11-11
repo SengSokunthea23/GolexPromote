@@ -238,7 +238,7 @@ export const Model1Scene: React.FC<SceneProps> = ({ L, t0, pace }) => {
 /* 08 · HIGHLIGHTS — model 2 over a ruby disc, three floating glass feature cards ─────────────── */
 const FEATURES: [string, string, string][] = [
   ['drop', 'គ្មានជាតិខ្លាញ់', 'TRANS FAT-FREE'],
-  ['flask', 'មិនបន្ថែមរសជាតិសិប្បនិម្មិត', 'NO ADDED ARTIFICIAL FLAVOURING'],
+  ['flask', 'គ្មានសារធាតុបន្ថែម', 'NO ADDED ARTIFICIAL FLAVOURING'],
 ];
 const FeatureCard: React.FC<{ i: number; start: number; end: number }> = ({ i, start, end }) => {
   const t = useTime();
