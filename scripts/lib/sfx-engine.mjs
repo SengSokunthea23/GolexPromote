@@ -46,7 +46,13 @@ export const createMixer = ({ sr = 48000, dur = 30, seed = 7 } = {}) => {
   };
 
   /* ── instruments ── */
+  /** Whoosh tuning: every whoosh is capped in length and trimmed in level (short, moderate, never dominant). */
+  const WHOOSH_MAX = 0.5; //  longest whoosh in seconds
+  const WHOOSH_LEN = 0.55; // length scale applied to the requested duration
+  const WHOOSH_GAIN = 0.6; // level scale applied to the requested gain
   const whoosh = (tc, d = 0.8, g = 0.4, dir = 0, lo = 300, hi = 5000) => {
+    d = Math.min(WHOOSH_MAX, d * WHOOSH_LEN);
+    g *= WHOOSH_GAIN;
     const f1 = svf(1.4), f2 = svf(1.4);
     put(tc - d * 0.55, (t) => {
       const k = t / d, env = Math.pow(Math.sin(Math.PI * Math.min(1, k)), 1.6), f = lo + (hi - lo) * Math.sin(Math.PI * Math.min(1, k * 0.9));
@@ -107,27 +113,27 @@ export const createMixer = ({ sr = 48000, dur = 30, seed = 7 } = {}) => {
    *  `kind` shapes the character: 'whip' (fast, bright), 'zoom' (deep, long), 'soft' (airy, gentle).
    */
   const transition = (tc, kind = 'zoom', g = 0.6, dir = 1) => {
-    const d = kind === 'whip' ? 0.55 : kind === 'zoom' ? 0.9 : 0.8;
+    const d = kind === 'whip' ? 0.32 : kind === 'zoom' ? 0.48 : 0.42;
     // air layer (two band sweeps, stereo, doppler pan)
     const fa = svf(0.9), fb = svf(0.9), fh = biquad('hp', 4000);
-    const lo = kind === 'soft' ? 500 : 250, hi = kind === 'whip' ? 9000 : kind === 'zoom' ? 6000 : 5000;
+    const lo = kind === 'soft' ? 400 : 220, hi = kind === 'whip' ? 5000 : kind === 'zoom' ? 3600 : 3000;
     put(tc - d * 0.62, (t) => {
       const k = Math.min(1, t / d);
       const env = Math.pow(Math.sin(Math.PI * k), kind === 'whip' ? 2.2 : 1.4) * (k < 0.62 ? 1 : 1 - 0.3 * (k - 0.62));
       const f = lo + (hi - lo) * Math.pow(Math.sin(Math.PI * Math.min(1, k * 0.95)), 1.2);
       const n1 = noise(), n2 = noise();
       const air = [fa(n1, f), fb(n2, f * 1.08)];
-      const sw = fh((n1 + n2) * 0.5) * Math.max(0, k - 0.45) * 1.4;
+      const sw = fh((n1 + n2) * 0.5) * Math.max(0, k - 0.45) * 0.5;
       return [(air[0] * 2.4 + sw) * env, (air[1] * 2.4 + sw) * env];
     }, d, g, (q) => dir * (q * 1.6 - 0.8), 0.35);
     // body layer: falling sine "vroom" peaking at the cut
     if (kind !== 'soft') {
       let ph = 0;
-      put(tc - 0.35, (t) => {
-        const k = t / 0.75;
+      put(tc - 0.22, (t) => {
+        const k = t / 0.45;
         ph += (2 * Math.PI * (kind === 'zoom' ? 160 - 110 * Math.min(1, k) : 220 - 140 * Math.min(1, k))) / SR;
         return Math.sin(ph) * Math.sin(Math.PI * Math.min(1, k)) * 0.5;
-      }, 0.75, g, 0, 0.2);
+      }, 0.45, g, 0, 0.2);
     }
   };
   /** Bright "swish" for small UI movements — short, high, clearly audible over music. */

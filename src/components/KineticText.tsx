@@ -14,6 +14,18 @@ type Props = {
   eout?: number;
 } & Partial<TypeStyle>;
 
+/** Widest a single headline line may be (1080 frame minus side margins). */
+const MAX_W = 980;
+let ctx: CanvasRenderingContext2D | null = null;
+/** Text width in px (fonts are already loaded before any frame renders — see loadFonts). */
+const measure = (s: string, font: string) => {
+  if (typeof document === 'undefined') return 0;
+  ctx = ctx ?? document.createElement('canvas').getContext('2d');
+  if (!ctx) return 0;
+  ctx.font = font;
+  return ctx.measureText(s).width;
+};
+
 /** Luxury serif kinetic headline: each letter rises and fades in on a stagger. */
 export const KineticText: React.FC<Props> = ({ text, top, start, end, stagger = 0.032, eout = 0.35, ...type }) => {
   const t = useTime();
@@ -29,10 +41,16 @@ export const KineticText: React.FC<Props> = ({ text, top, start, end, stagger = 
   });
   if (type.family === 'khmer') {
     const q = easeOut((t - start) / 0.65);
+    // "|" is a word separator in the other themes' copy — show it as a space here.
+    const line = text.split('|').join(' ');
+    // Shrink the font if the line would be wider than the safe area, so it never runs off-screen.
+    const size = st.fontSize as number;
+    const w = measure(line, `${st.fontWeight} ${size}px ${st.fontFamily}`);
+    const fit = w > MAX_W ? MAX_W / w : 1;
     return (
       <Line top={top}>
-        <div style={{ ...st, opacity: out * q, transform: `translateY(${30 * (1 - q)}px)` }}>
-          {text}
+        <div style={{ ...st, ...(fit < 1 ? typeStyle({ family: 'khmer', weight: 600, variant: 'gold', ...type, size: Math.floor(size * fit) }) : {}), opacity: out * q, transform: `translateY(${30 * (1 - q)}px)` }}>
+          {line}
         </div>
       </Line>
     );

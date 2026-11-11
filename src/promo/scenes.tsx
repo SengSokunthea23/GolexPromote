@@ -54,7 +54,7 @@ export const CupScene: React.FC<S> = ({ L, khmer = false }) => (
     <Line top={200}>
       <Reveal start={0.5} end={L} mode="wipe" ein={0.8}>
         <GoldText family={khmer ? 'khmer' : 'sans'} weight={700} size={khmer ? 100 : 34} tracking={khmer ? 0 : 13} variant="cream">
-          {khmer ? 'កាហ្វេខ្ញីឆុងរហ័ស' : 'GINGER INSTANT COFFEE'}
+          {khmer ? 'កាហ្វេខ្ញី' : 'GINGER INSTANT COFFEE'}
         </GoldText>
       </Reveal>
     </Line>
@@ -84,11 +84,11 @@ export const PackScene: React.FC<S> = ({ L, khmer = false }) => (
     <Line top={200}>
       <Reveal start={0.4} end={L} mode="wipe" ein={0.8}>
         <GoldText family={khmer ? 'khmer' : 'sans'} weight={700} size={khmer ? 100 : 34} tracking={khmer ? 0 : 13} variant="cream">
-          {khmer ? 'កាហ្វេខ្ញីឆុងរហ័ស' : 'GINGER INSTANT COFFEE'}
+          {khmer ? 'កាហ្វេខ្ញី' : 'GINGER INSTANT COFFEE'}
         </GoldText>
       </Reveal>
     </Line>
-    <KineticText text={khmer ? 'បទពិសោធន៍ ៥ ក្នុង ១' : 'The 5 in 1 Experience'} top={1480} start={0.9} end={L} size={khmer ? 70 : 76} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
+    <KineticText text={khmer ? 'បទពិសោធន៍ថ្មី|កាហ្វេខ្ញី 5IN1' : 'The 5 in 1 Experience'} top={1480} start={0.9} end={L} size={khmer ? 70 : 76} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
     <RuleLabel text={khmer ? 'ឈ្ងុយឆ្ងាញ់ · កក់ក្តៅ · ផ្តល់ថាមពល' : 'RICH & CREAMY  +  WARMING & ENERGIZING'} top={1610} start={1.4} end={L} family={khmer ? 'khmer' : 'micro'} weight={500} size={khmer ? 32 : 21} tracking={khmer ? 0 : 3} lineLength={khmer ? 24 : 50} gap={khmer ? 10 : 20} />
     <Line top={1685}>
       <Reveal start={1.8} end={L} mode="rise">
@@ -109,9 +109,8 @@ const BENEFITS: [keyof typeof import('./parts').ICONS, string][] = [
   ['bowl', 'PREMIUM BROWN SUGAR'],
 ];
 const KHMER_BENEFITS: [keyof typeof import('./parts').ICONS, string][] = [
-  ['heart', 'គ្មានកូឡេស្តេរ៉ុល'],
-  ['drop', 'គ្មានជាតិខ្លាញ់បំប្លែង'],
-  ['flask', 'មិនបន្ថែមរសជាតិសិប្បនិម្មិត'],
+  ['drop', 'គ្មានជាតិខ្លាញ់'],
+  ['flask', 'មិនមានសារធាតុបន្ថែម'],
   ['leaf', 'ផលិតពីខ្ញីបេនតុងគុណភាពខ្ពស់'],
   ['bowl', 'ស្ករត្នោតគុណភាពខ្ពស់'],
 ];
@@ -126,7 +125,7 @@ export const SachetScene: React.FC<S> = ({ L, khmer = false }) => (
     <RuleLabel text={khmer ? 'ក្នុងមួយកញ្ចប់មាន' : "WHAT'S INSIDE"} top={200} start={0.3} end={L} family={khmer ? 'khmer' : 'micro'} weight={500} size={khmer ? 28 : 22} tracking={khmer ? 0 : 9} lineLength={70} />
     <KineticText text={khmer ? 'គុណភាពល្អក្នុងមួយកញ្ចប់' : 'Goodness in Every Sachet'} top={285} start={0.5} end={L} size={khmer ? 56 : 64} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
     {(khmer ? KHMER_BENEFITS : BENEFITS).map(([icon, text], i) => (
-      <BenefitRow key={text} icon={icon} text={text} left={525} width={500} top={470 + i * 218} start={0.9 + i * 0.5} end={L} khmer={khmer} />
+      <BenefitRow key={text} icon={icon} text={text} left={525} width={500} top={560 + i * 218} start={0.9 + i * 0.5} end={L} khmer={khmer} />
     ))}
     <Line top={1745}>
       <Reveal start={3.2} end={L} mode="rise">
@@ -220,11 +219,11 @@ export const Model2Scene: React.FC<S> = ({ L, khmer = false }) => (
     <Glow cx={560} cy={1050} r={760} start={0.1} end={L} />
     <GoldRings cx={560} cy={1060} r={390} start={0.2} end={L} opacity={0.85} />
     <Hero src={asset('model2.png')} cx={560} cy={1360} w={1260} start={0.1} end={L} ein={1.2} rise={80} scale0={0.92} push={0.06} float={5} />
-    <KineticText text={khmer ? 'ពេលវេលាដ៏កក់ក្តៅប្រចាំថ្ងៃ' : 'Your Daily Moment'} top={215} start={0.4} end={L} size={khmer ? 62 : 86} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
+    <KineticText text={khmer ? 'ពេលវេលាដ៏កក់ក្តៅប្រចាំថ្ងៃ' : 'Your Daily Moment'} top={250} start={0.4} end={L} size={khmer ? 74 : 86} family={khmer ? 'khmer' : 'serif'} italic={!khmer} stagger={khmer ? 0 : 0.032} />
     <Line top={340}>
       <Reveal start={1.0} end={L} mode="center" ein={0.9}>
         <GoldText family={khmer ? 'khmer' : 'sans'} weight={600} size={khmer ? 38 : 44} tracking={khmer ? 0 : 20} variant="cream">
-          {khmer ? 'នៃភាពកក់ក្តៅ' : 'OF WARMTH'}
+          {khmer ? '' : 'OF WARMTH'}
         </GoldText>
       </Reveal>
     </Line>

@@ -112,8 +112,8 @@ export const CupScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <Pour x={560} surfaceY={968} start={0.4} dur={1.1} />
       <Steam cx={560} baseY={880} start={1.8} end={E} height={380} count={5} />
       <OrbitPath cx={540} cy={1120} rx={480} ry={150} start={0.5} end={E} tilt={-7} front />
-      <Words text="ឈ្ងុយឆ្ងាញ់" y={190} start={B(2)} end={E} size={110} weight={900} tone="gold" mode="scale" depth />
-      <Words text="គ្រប់|ការក្រេប" y={370} start={B(3)} end={E} size={58} tone="ivory" stagger={0.2} gap={16} />
+      <Words text="ឈ្ងុយឆ្ងាញ់" y={190} start={B(2)} end={E} size={120} weight={900} tone="gold" mode="scale" depth />
+      {/* <Words text="គ្រប់|ការក្រេប" y={370} start={B(3)} end={E} size={58} tone="ivory" stagger={0.2} gap={16} /> */}
       <Underline x={340} y={1525} w={400} start={B(4)} end={E} dur={1.0} />
       <Words text="Richness|in|every|sip." y={1545} start={B(4) + 0.3} end={E} font="serif" size={60} weight={500} italic tone="ivory" stagger={0.16} gap={14} />
     </>
@@ -159,7 +159,7 @@ export const TextureScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
 const ING = [
   { n: '01', kh: 'ខ្ញីបេនតុង', en: 'BENTONG GINGER', d: 'កក់ក្តៅ និងផ្តល់ថាមពល', src: img('ginger2.png'), iw: 290, side: -1 },
   { n: '02', kh: 'គ្រាប់កាហ្វេ', en: 'COFFEE BEANS', d: 'ឈ្ងុយ និងខាប់', src: '', iw: 0, side: 1 },
-  { n: '03', kh: 'ស្ករត្នោត', en: 'BROWN SUGAR', d: 'ផ្អែមឈ្ងុយ ល្មមល្អ', src: img('palm1.png'), iw: 270, side: -1 },
+  { n: '03', kh: 'ស្ករត្នោត', en: 'BROWN SUGAR', d: 'ផ្អែមឈ្ងុយ', src: img('palm1.png'), iw: 270, side: -1 },
 ];
 const IngredientRow: React.FC<{ i: number; y: number; start: number; focus: number; end: number }> = ({ i, y, start, focus, end }) => {
   const t = useTime();
@@ -230,15 +230,14 @@ export const Model1Scene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <Words text="moment|of" x={60} width={280} align="left" y={1310} start={B(4) + 0.35} end={E} font="serif" size={48} weight={500} italic tone="burgundy" stagger={0.14} gap={10} />
       <Words text="warmth." x={60} width={280} align="left" y={1370} start={B(4) + 0.7} end={E} font="serif" size={48} weight={600} italic tone="ruby" />
       <Underline x={64} y={1450} w={200} start={B(5)} end={E} from="left" dur={1.0} />
-      <Words text="ប្រចាំថ្ងៃ|របស់អ្នក" x={60} width={280} align="left" y={1470} start={B(5) + 0.2} end={E} font="khSans" size={30} weight={600} tone="espresso" stagger={0.2} gap={8} />
+      <Words text="ប្រចាំថ្ងៃរបស់អ្នក" x={60} width={280} align="left" y={1470} start={B(5) + 0.2} end={E} font="khSans" size={30} weight={600} tone="espresso" stagger={0.2} gap={8} />
     </>
   );
 };
 
 /* 08 · HIGHLIGHTS — model 2 over a ruby disc, three floating glass feature cards ─────────────── */
 const FEATURES: [string, string, string][] = [
-  ['heart', 'គ្មានកូឡេស្តេរ៉ុល', 'NO CHOLESTEROL'],
-  ['drop', 'គ្មានជាតិខ្លាញ់បំប្លែង', 'TRANS FAT-FREE'],
+  ['drop', 'គ្មានជាតិខ្លាញ់', 'TRANS FAT-FREE'],
   ['flask', 'មិនបន្ថែមរសជាតិសិប្បនិម្មិត', 'NO ADDED ARTIFICIAL FLAVOURING'],
 ];
 const FeatureCard: React.FC<{ i: number; start: number; end: number }> = ({ i, start, end }) => {
@@ -251,8 +250,8 @@ const FeatureCard: React.FC<{ i: number; start: number; end: number }> = ({ i, s
       <svg width={120} height={120} viewBox="-28 -28 120 120" style={{ position: 'absolute', left: 24, top: 25 }}>
         <g style={{ strokeDasharray: 300, strokeDashoffset: 300 * (1 - draw) } as React.CSSProperties}>{SICONS[icon]}</g>
       </svg>
-      <div style={{ position: 'absolute', left: 168, top: 34, fontFamily: SF.khSans, fontWeight: 700, fontSize: 30, color: SC.burgundy, lineHeight: 1.45, whiteSpace: 'nowrap' }}>{kh}</div>
-      <div style={{ position: 'absolute', left: 170, top: 100, fontFamily: SF.sans, fontWeight: 600, fontSize: 13, letterSpacing: 2, color: SC.gold, whiteSpace: 'nowrap' }}>{en}</div>
+      <div style={{ position: 'absolute', left: 160, top: 40, fontFamily: SF.khSans, fontWeight: 700, fontSize: 32, color: SC.burgundy, lineHeight: 1.45, whiteSpace: 'nowrap' }}>{kh}</div>
+      <div style={{ position: 'absolute', left: 160, top: 95, fontFamily: SF.sans, fontWeight: 600, fontSize: 16, letterSpacing: 2, color: SC.gold, whiteSpace: 'nowrap' }}>{en}</div>
     </Glass>
   );
 };
@@ -269,8 +268,8 @@ export const HighlightsScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <Product src={img('model2.png')} x={770} y={1300} w={1150} start={0.1} end={E} dx={160} dy={0} s0={0.96} blur0={12} bob={3} push={0.015} shadow="none" z={3} />
       <Label text="PRODUCT HIGHLIGHTS" y={170} start={0.4} end={E} />
       <Words text="ជម្រើសល្អ" y={210} start={B(1)} end={E} size={88} tone="espresso" />
-      <Words text="សម្រាប់|រាល់ថ្ងៃ" y={350} start={B(2)} end={E} size={60} tone="ruby" stagger={0.2} gap={16} />
-      {[0, 1, 2].map((i) => <FeatureCard key={i} i={i} start={B(2.5) + i * 0.33} end={E} />)}
+      <Words text="សម្រាប់រាល់ថ្ងៃ" y={325} start={B(2)} end={E} size={65} tone="ruby" stagger={0.2} gap={16} />
+      {FEATURES.map((_, i) => <FeatureCard key={i} i={i} start={B(2.5) + i * 0.33} end={E} />)}
     </>
   );
 };

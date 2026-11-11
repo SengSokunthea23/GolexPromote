@@ -22,7 +22,10 @@ type Props = {
  * - vwipe: top → bottom (vertical gold dividers)
  * Exit is always a gentle fade with a 14px lift.
  */
-export const Reveal: React.FC<Props> = ({ start, end, mode = 'rise', ein = 0.7, eout = 0.35, children, style }) => {
+/** Extra masked area above/below the content, so tall Khmer glyphs are never clipped mid-reveal. */
+const MASK_PAD = 70;
+
+export const Reveal: React.FC<Props> =({ start, end, mode = 'rise', ein = 0.7, eout = 0.35, children, style }) => {
   const t = useTime();
   if (t < start || t > end) return null;
   const p = easeOut((t - start) / ein);
@@ -45,6 +48,13 @@ export const Reveal: React.FC<Props> = ({ start, end, mode = 'rise', ein = 0.7, 
     mask = `linear-gradient(90deg, transparent ${50 - h}%, #000 ${50 - h + 10}%, #000 ${50 + h - 10}%, transparent ${50 + h}%)`;
   }
 
+  // A mask only covers the element's own box, and anything outside it is hidden. Khmer stacks (top vowels,
+  // subscripts like ហ្វេ ខ្ញី) reach above and below the line box, so:
+  //  1. once the reveal has finished, the mask is removed entirely (it would otherwise keep cutting them);
+  //  2. while it animates, the masked box is extended vertically (padding cancelled by negative margin).
+  if (p >= 0.999) mask = undefined;
+  const pad = mask ? MASK_PAD : 0;
+
   return (
     <div
       style={{
@@ -52,6 +62,10 @@ export const Reveal: React.FC<Props> = ({ start, end, mode = 'rise', ein = 0.7, 
         transform: `translateY(${dy}px)`,
         WebkitMaskImage: mask,
         maskImage: mask,
+        paddingTop: pad,
+        paddingBottom: pad,
+        marginTop: -pad,
+        marginBottom: -pad,
         ...style,
       }}
     >

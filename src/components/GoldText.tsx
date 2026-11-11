@@ -27,6 +27,13 @@ export const typeStyle = ({ family, weight, size, italic, tracking = 0, variant 
   opacity,
   ...(variant === 'gold'
     ? {
+        // background-clip:text only paints glyph parts inside the element's box. Khmer stacks (top vowel +
+        // subscript, e.g. ថ្មី ខ្ញី) reach well beyond the line box, so extend the painted area vertically
+        // with padding and cancel it with an equal negative margin — layout is unchanged, nothing is cut.
+        paddingTop: Math.round(size * (family === 'khmer' ? 0.45 : 0.2)),
+        paddingBottom: Math.round(size * (family === 'khmer' ? 0.45 : 0.2)),
+        marginTop: -Math.round(size * (family === 'khmer' ? 0.45 : 0.2)),
+        marginBottom: -Math.round(size * (family === 'khmer' ? 0.45 : 0.2)),
         backgroundImage: GOLD_GRADIENT,
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',

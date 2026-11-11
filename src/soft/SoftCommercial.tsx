@@ -102,7 +102,7 @@ export const SoftCommercial: React.FC = () => {
           </Sequence>
         </>
       )}
-      <Audio src={staticFile('audio/golex-soft-sfx.wav')} volume={0.5} />
+      <Audio src={staticFile('audio/golex-soft-sfx.wav')} volume={0.7} />
     </AbsoluteFill>
   );
 };

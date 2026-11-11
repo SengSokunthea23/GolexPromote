@@ -77,11 +77,11 @@ export const PackScene: React.FC<SceneProps> = ({ L }) => {
       <Sparkle x={760} y={560} at={1.9} size={130} />
       <Sparkle x={300} y={1180} at={lift} size={120} />
       {/* bar 1: product identity */}
-      <KhWords text="កាហ្វេខ្ញី|ឆុងរហ័ស" y={150} start={0.4} end={lift} size={50} family="khmer" weight={700} ink="cream" />
+      <KhWords text="កាហ្វេខ្ញី" y={150} start={0.4} end={lift} size={70} family="khmer" weight={700} ink="cream" />
       <KhWords text="៥|ក្នុង|១" y={1430} start={0.8} end={lift} size={118} ink="gold" stagger={0.14} gap={36} />
       <EnTrack text="GINGER INSTANT COFFEE  5 IN 1" y={1650} start={1.2} end={lift} size={24} family="micro" weight={500} tracking={8} />
       {/* bar 2: emotional line on the lift */}
-      <KhWords text="ឈ្ងុយឆ្ងាញ់|គ្រប់ការក្រេប" y={140} start={lift + 0.05} end={E} size={66} ink="gold" stagger={0.16} />
+      <KhWords text="ឈ្ងុយឆ្ងាញ់" y={140} start={lift + 0.05} end={E} size={66} ink="gold" stagger={0.16} />
       <EnTrack text="Richness in every sip" y={1450} start={lift + 0.25} end={E} size={64} family="serif" italic tracking={1} ink="gold" stagger={0.03} />
       <Lotus y={1580} start={lift + 0.5} end={E} />
       <KhWords text="២៥|កញ្ចប់|·|១៩ក្រាម × ២៥|·|ទម្ងន់សុទ្ធ ៤៧៥ក្រាម" y={1630} start={lift + 0.8} end={E} size={28} family="khmer" weight={400} ink="cream" stagger={0.06} gap={12} />
@@ -135,8 +135,8 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L }) => {
       <Glow cx={540} cy={1000} r={820} start={0.1} end={E} strength={0.5} />
       <Item src={spr('slice.png')} x={120} y={560} w={130} start={0.3} end={E} dur={1} dx={-150} blur={5} spin={14} shadow={false} />
       <Item src={spr('bean9.png')} x={980} y={1440} w={120} start={0.5} end={E} dur={1} dx={150} blur={7} spin={-16} shadow={false} />
-      <KhWords text="គ្រឿងផ្សំ|ពិសេស" y={150} start={0.05} end={E} size={40} family="khmer" weight={600} ink="cream" stagger={0.12} />
-      <KhWords text="ការលាយ|ដ៏ល្អ|ឥតខ្ចោះ" y={230} start={0.25} end={E} size={74} ink="gold" stagger={0.14} gap={18} />
+      <KhWords text="គ្រឿងផ្សំ ពិសេស" y={150} start={0.05} end={E} size={40} family="khmer" weight={600} ink="cream" stagger={0.12} />
+      <KhWords text="ដ៏ល្អឥតខ្ចោះ" y={230} start={0.25} end={E} size={74} ink="gold" stagger={0.14} gap={18} />
       <div style={{ position: 'absolute', inset: 0, transform: `translateY(${-30 * drift}px) scale(${1 + 0.03 * drift})`, transformOrigin: '540px 1000px' }}>
         <ArchCard x={200} y={1010} w={320} h={520} start={B(1)} end={E} src={img('ginger2.png')} imgW={330} kh="ខ្ញីបេនតុង" en="BENTONG GINGER" num="01" phase={0} tiltIn={-8} />
         <ArchCard x={540} y={950} w={320} h={520} start={B(2)} end={E} src={img('beans2.png')} imgW={300} kh="គ្រាប់កាហ្វេ" en="FINE COFFEE" num="02" phase={1.7} />
@@ -155,8 +155,8 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L }) => {
 /* 06 · BENEFITS — sachet turns in, five claims (copied from the pack) on half-beats ────────── */
 const stroke = { fill: 'none', stroke: COLORS.champagne, strokeWidth: 3, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 const CLAIMS: [React.ReactNode, string][] = [
-  [ICONS.drop, 'គ្មានជាតិខ្លាញ់បំប្លែង'],
-  [ICONS.flask, 'គ្មានរសជាតិសិប្បនិម្មិត'],
+  [ICONS.drop, 'គ្មានជាតិខ្លាញ់'],
+  [ICONS.flask, 'គ្មានសារធាតុបន្ថែម'],
   [ICONS.leaf, 'ខ្ញីបេនតុងគុណភាពខ្ពស់'],
   [<path key="s" {...stroke} d="M10 34 H54 C54 46 44 54 32 54 C20 54 10 46 10 34Z M20 30 C22 22 42 22 44 30" />, 'ស្ករត្នោតគុណភាពខ្ពស់'],
 ];
@@ -167,8 +167,8 @@ export const BenefitsScene: React.FC<SceneProps> = ({ L }) => {
       <Glow cx={250} cy={1040} r={600} start={0.1} end={E} />
       <CircleDraw cx={250} cy={1040} r={300} start={0.15} dur={1.2} end={E} width={2} />
       <Item src={img('sachet.png')} x={250} y={1040} w={330} start={0} end={E} dur={1} dx={-260} dy={0} rotY0={70} r0={-12} rot={-4} blur0={14} mb={50} sway={4} z={4} />
-      <KhWords text="គុណភាព|ក្នុង|គ្រប់កញ្ចប់" y={160} start={0.05} end={E} size={64} ink="gold" stagger={0.12} gap={18} />
-      <EnTrack text="GOODNESS IN EVERY SACHET" y={340} start={0.3} end={E} size={24} family="micro" weight={500} tracking={9} />
+      <KhWords text="គុណភាពល្អគ្រប់កញ្ចប់" y={160} start={0.05} end={E} size={64} ink="gold" stagger={0.12} gap={18} />
+      <EnTrack text="GOODNESS IN EVERY SACHET" y={325} start={0.3} end={E} size={24} family="micro" weight={500} tracking={9} />
       {CLAIMS.map(([icon, text], i) => (
         <Chip key={text} x={440} y={700 + i * 150} w={610} start={0.2 + i * (BEAT / 2)} end={E} icon={icon} text={text} />
       ))}
@@ -202,7 +202,7 @@ export const Model1Scene: React.FC<SceneProps> = ({ L }) => {
       <Item src={img('model1.png')} x={545} y={1400} w={1080} start={0} end={E} dur={1.1} dy={160} s0={0.94} blur0={18} ease="expo" bob={4} push={0.02} z={5} />
       <Sparkle x={420} y={1180} at={B(2)} size={120} />
       <KhWords text="ពេលវេលា|ដ៏កក់ក្តៅ" y={150} start={0.2} end={E} size={78} ink="gold" stagger={0.16} gap={20} />
-      <KhWords text="ប្រចាំថ្ងៃ|របស់អ្នក" y={320} start={0.55} end={E} size={46} family="khmer" weight={600} ink="cream" stagger={0.14} gap={14} />
+      <KhWords text="ប្រចាំថ្ងៃរបស់អ្នក" y={320} start={0.55} end={E} size={46} family="khmer" weight={600} ink="cream" stagger={0.14} gap={14} />
       <EnTrack text="Your daily moment of warmth" y={430} start={0.85} end={E} size={40} family="serif" italic tracking={1} ink="gold" stagger={0.02} />
     </>
   );
@@ -218,7 +218,7 @@ export const Model2Scene: React.FC<SceneProps> = ({ L }) => {
       <CircleDraw cx={520} cy={1015} r={140} start={0.45} dur={0.9} end={E} width={2.5} z={6} />
       <Callout x={430} y={935} tx={320} ty={770} start={0.9} end={E} kh="ក្លិនខ្ញីស្រស់" en="FRESH GINGER AROMA" side="left" />
       <KhWords text="ថាមពលថ្មី" y={150} start={0.15} end={E} size={92} ink="gold" />
-      <KhWords text="សម្រាប់|ថ្ងៃថ្មី|របស់អ្នក" y={350} start={0.45} end={E} size={44} family="khmer" weight={600} ink="cream" stagger={0.12} gap={14} />
+      <KhWords text="សម្រាប់ថ្ងៃថ្មីរបស់អ្នក" y={325} start={0.45} end={E} size={44} family="khmer" weight={600} ink="cream" stagger={0.12} gap={14} />
       <EnTrack text="ENERGIZING  ·  WARMING  ·  PREMIUM" y={455} start={0.8} end={E} size={22} family="micro" weight={500} tracking={7} ink="gold" />
       <Sparkle x={600} y={900} at={B(2)} size={110} />
     </>

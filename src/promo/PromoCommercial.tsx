@@ -49,7 +49,7 @@ export const PromoCommercial: React.FC<{ khmer?: boolean }> = ({ khmer = false }
       <Vignette />
       <CornerFrame start={0.8} />
       <FilmGrain opacity={0.06} />
-      <Audio src={staticFile('audio/BrightDanceEnergy-usesuno.com.mp3')} volume={0.9} />
+      <Audio src={staticFile('audio/SpicyFunkyGroove-usesuno.com (1).mp3')} volume={0.8} />
       <Audio src={staticFile('audio/golex-sfx.wav')} volume={1} />
     </AbsoluteFill>
   );
