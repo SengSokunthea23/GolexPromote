@@ -110,7 +110,7 @@ export const MacroScene: React.FC<SceneProps> = ({ L, t0, idx }) => {
         {five > 0 && <Extruded text="5" size={300} p={five} style={{ transform: `scale(${0.3 + 0.7 * five}) rotate(${-12 * (1 - five)}deg) translateY(${10 * Math.sin(life * 1.3)}px)` }} />}
         {in1 > 0 && <Extruded text="IN 1" size={130} p={in1} style={{ transform: `translateX(${160 * (1 - in1)}px)`, marginBottom: 34, filter: in1 < 1 ? `blur(${(1 - in1) * 8}px)` : undefined }} />}
       </div>
-      <Words text="កាហ្វេខ្ញី|៥ ក្នុង ១" y={1320} start={B(2.5)} end={E} size={84} tone="ruby" stagger={0.2} gap={24} />
+      <Words text="កាហ្វេខ្ញី ៥ ក្នុង ១" y={1320} start={B(2.5)} end={E} size={84} tone="ruby" stagger={0.2} gap={24} />
       <Words text="ខាប់ និងឈ្ងុយឆ្ងាញ់|·|កក់ក្តៅ និងផ្តល់ថាមពល" y={1480} start={B(4)} end={E} font="khSans" size={32} weight={600} tone="espresso" stagger={0.12} gap={14} />
       <Label text="5 IN 1. ONE DELIGHTFUL EXPERIENCE." y={1585} start={B(4.5)} end={E} size={18} tracking={5} tone="gold" />
     </>
@@ -171,7 +171,7 @@ export const TextureScene: React.FC<SceneProps> = ({ L, t0, idx }) => {
         const sc = 1 - 0.55 * k;
         return <Img key={i} src={spr(beans[i % beans.length])} style={{ position: 'absolute', left: x - 45, top: y - 35, width: 90, zIndex: 3, opacity: vis * o * (k > 0.88 ? (1 - k) / 0.12 : 1), transform: `scale(${sc}) rotate(${k * 400 + i * 40}deg)`, filter: `drop-shadow(0 8px 6px ${rgba(IC.burgundy, 0.3)})` }} />;
       })}
-      <Label text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={215} start={B(0.5)} end={E} font="khSans" size={30} />
+      <Label text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={215} start={B(0.5)} end={E} font="khSans" size={34} />
       <div style={{ position: 'absolute', left: 600 - R - 22, top: 820 - R - 22, width: (R + 22) * 2, height: (R + 22) * 2, borderRadius: '50%', zIndex: 4, opacity: o, background: `linear-gradient(135deg, ${IC.softGold}, ${IC.gold})`, boxShadow: `0 30px 50px ${rgba(IC.burgundy, 0.25)}` }} />
       <div style={{ position: 'absolute', left: 600 - R, top: 820 - R, width: R * 2, height: R * 2, borderRadius: '50%', overflow: 'hidden', zIndex: 5, opacity: o }}>
         <div style={{ position: 'absolute', left: R - 400, top: R - 400, width: 800, height: 800, transform: `scale(${1 + 0.06 * (t / L)}) rotate(${t * 3}deg)` }}>
@@ -201,7 +201,7 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L, t0, idx }) => {
     <>
       <Pastel t0={t0} {...bgOf(idx)} />
       <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0, zIndex: 1, overflow: 'visible', opacity: exitK(t, E, 0.3) }}>
-        <path d="M 300 820 C 560 860, 860 900, 780 1180 S 300 1300, 300 1540" fill="none" stroke={IC.gold} strokeWidth={4} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - path} />
+        <path d="M 300 760 C 560 800, 860 840, 780 1120 S 300 1240, 300 1480" fill="none" stroke={IC.gold} strokeWidth={4} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - path} />
       </svg>
       <Label text="INGREDIENTS" y={150} start={0.15} end={E} />
       <Words text="ផលិតពីខ្ញីបេនតុង" y={190} start={B(0.5)} end={E} size={70} tone="espresso" />
@@ -219,7 +219,7 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L, t0, idx }) => {
           </Card3D>
         </React.Fragment>
       ))}
-      <Label text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1730} start={B(6.5)} end={E} font="khSans" size={30} />
+      <Label text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1730} start={B(6.5)} end={E} font="khSans" size={34} />
     </>
   );
 };

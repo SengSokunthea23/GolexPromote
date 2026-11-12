@@ -257,7 +257,7 @@ export const EndScene: React.FC<S> = ({ L, khmer = false }) => (
         </GoldText>
       </Reveal>
     </Line>
-    <Line top={192}>
+    <Line top={40}>
       <Reveal start={1.2} end={L + 5} mode="fade">
         <span style={{ fontFamily: FONTS.khmer, fontWeight: 500, fontSize: khmer ? 28 : 26, color: COLORS.champagne, letterSpacing: khmer ? 0 : 1 }}>
           {khmer ? 'ផលិតនៅប្រទេសម៉ាឡេស៊ី' : 'ផលិតនៅម៉ាឡេស៊ី · MADE IN MALAYSIA'}

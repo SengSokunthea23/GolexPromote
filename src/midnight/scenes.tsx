@@ -141,7 +141,7 @@ export const TextureScene: React.FC<SceneProps> = ({ L, t0 }) => {
     <>
       <Night t0={t0} cy={45} />
       <Glow cx={540} cy={860} r={600} start={0.1} end={E} strength={0.5} color="ruby" />
-      <Label text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={215} start={B(1)} end={E} font="khSans" size={30} />
+      <Label text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={215} start={B(1)} end={E} font="khSans" size={34} />
       <Halo cx={540} cy={860} r={432} start={0.3} end={E} />
       <div style={{ position: 'absolute', left: 540 - R, top: 860 - R, width: R * 2, height: R * 2, borderRadius: '50%', overflow: 'hidden', zIndex: 3, boxShadow: `0 0 60px ${rgba(MC.gold, 0.35)}, 0 0 120px ${rgba(MC.crimson, 0.3)}`, opacity: exitK(t, E, 0.3) }}>
         <div style={{ position: 'absolute', left: R - 400, top: R - 400, width: 800, height: 800, transform: `scale(${z}) rotate(${t * 2}deg)` }}>
@@ -202,10 +202,10 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L, t0 }) => {
       {ING.map((it, i) => (
         <React.Fragment key={it.n}>
           <Ingredient i={i} start={starts[i]} end={E} />
-          <Annot x={290 + it.w * 0.32} y={it.y - 20} tx={560} ty={it.y - 20} len={420} start={starts[i] + 0.25} end={E} num={it.n} kh={it.kh} en={it.en} d={it.d} />
+          <Annot x={290 + it.w * 0.32 + 90} y={it.y - 20} tx={560} ty={it.y - 20} len={340} start={starts[i] + 0.25} end={E} num={it.n} kh={it.kh} en={it.en} d={it.d} />
         </React.Fragment>
       ))}
-      <Label text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1720} start={B(6.5)} end={E} font="khSans" size={30} tone="ivory" />
+      <Label text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1720} start={B(6.5)} end={E} font="khSans" size={34} tone="ivory" />
     </>
   );
 };

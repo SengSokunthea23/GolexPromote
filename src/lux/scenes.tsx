@@ -78,7 +78,7 @@ export const PackScene: React.FC<SceneProps> = ({ L }) => {
       <Sparkle x={300} y={1180} at={lift} size={120} />
       {/* bar 1: product identity */}
       <KhWords text="កាហ្វេខ្ញី" y={150} start={0.4} end={lift} size={70} family="khmer" weight={700} ink="cream" />
-      <KhWords text="៥|ក្នុង|១" y={1430} start={0.8} end={lift} size={118} ink="gold" stagger={0.14} gap={36} />
+      <KhWords text="៥ ក្នុង ១" y={1430} start={0.8} end={lift} size={118} ink="gold" stagger={0.14} gap={36} />
       <EnTrack text="GINGER INSTANT COFFEE  5 IN 1" y={1650} start={1.2} end={lift} size={24} family="micro" weight={500} tracking={8} />
       {/* bar 2: emotional line on the lift */}
       <KhWords text="ឈ្ងុយឆ្ងាញ់" y={140} start={lift + 0.05} end={E} size={66} ink="gold" stagger={0.16} />

@@ -131,7 +131,7 @@ export const TextureScene: React.FC<SceneProps> = ({ L, t0 }) => {
       </div>
       <Float src={spr('slice.png')} x={170} y={560} w={170} start={0.4} end={E} dx={-140} dy={0} rot={-15} edge z={5} />
       <Float src={spr('bean8.png')} x={910} y={1110} w={130} start={0.55} end={E} dx={140} dy={0} rot={40} z={5} phase={2} />
-      <Caption text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={200} start={B(0.5)} end={E} font="khSans" color={EC.softGold} size={30} />
+      <Caption text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={200} start={B(0.5)} end={E} font="khSans" color={EC.softGold} size={34} />
       <Words text="ខ្ញីស្រស់|·|កាហ្វេល្អ" y={1350} start={B(1)} end={E} size={84} tone="ivory" stagger={0.15} gap={20} />
       <Underline x={340} y={1510} w={400} start={B(2)} end={E} color={EC.softGold} />
       <Words text="Ginger|infused.|Coffee|inspired." y={1530} start={B(2) + 0.05} end={E} font="serif" size={50} weight={500} italic tone="softGold" stagger={0.06} gap={14} />
@@ -185,7 +185,7 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L, t0 }) => {
       <IngRow i={0} y={540} start={B(2.5)} end={E} />
       <IngRow i={1} y={900} start={B(3.5)} end={E} />
       <IngRow i={2} y={1260} start={B(4.5)} end={E} />
-      <Caption text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1680} start={B(6)} end={E} font="khSans" size={30} />
+      <Caption text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1680} start={B(6)} end={E} font="khSans" size={34} />
     </>
   );
 };

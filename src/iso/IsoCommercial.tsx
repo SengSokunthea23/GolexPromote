@@ -43,7 +43,12 @@ const ORIGIN: Record<string, [number, number]> = {
 /** Gentle isometric camera: a slow diagonal drift and breathing scale. */
 const Camera: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const t = useTime();
-  return <AbsoluteFill style={{ transform: `translate(${5 * Math.sin(t * 0.28)}px, ${4 * Math.sin(t * 0.21 + 1)}px) scale(${1.012 + 0.006 * Math.sin(t * 0.4)})` }}>{children}</AbsoluteFill>;
+  return <AbsoluteFill
+    style={{
+      transform: `translate(${5 * Math.sin(t * 0.28)}px, ${4 * Math.sin(t * 0.21 + 1)}px) scale(${1.012 + 0.006 * Math.sin(t * 0.4)})`,
+      translate: '13.8px 3.9px'
+    }}
+  >{children}</AbsoluteFill>;
 };
 
 /**

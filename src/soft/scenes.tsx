@@ -141,7 +141,7 @@ export const TextureScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
   return (
     <>
       <Ivory t0={t0} lines={false} />
-      <Label text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={215} start={B(1)} end={E} font="khSans" size={30} />
+      <Label text="ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់" y={215} start={B(1)} end={E} font="khSans" size={34} />
       <Ring cx={540} cy={860} r={430} start={0.3} end={E} dur={1.2} width={2} />
       <Ring cx={540} cy={860} r={470} start={0.5} end={E} dashed opacity={0.7} />
       <div style={{ position: 'absolute', left: 540 - R, top: 860 - R, width: R * 2, height: R * 2, borderRadius: '50%', overflow: 'hidden', zIndex: 3, boxShadow: `0 40px 70px ${rgba(SC.burgundy, 0.35)}`, opacity: exitK(t, E, 0.35) }}>
@@ -213,7 +213,7 @@ export const IngredientsScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <IngredientRow i={2} y={1280} start={B(7)} focus={B(10)} end={E} />
       <Product src={spr('slice.png')} x={1010} y={560} w={120} start={B(4) + 0.4} end={E} dx={120} dy={0} r0={40} shadow="drop" bob={12} phase={1} z={9} />
       <Product src={spr('bean5.png')} x={70} y={1640} w={110} start={B(7) + 0.4} end={E} dx={-120} dy={0} r0={-40} shadow="drop" bob={12} phase={2} z={9} />
-      <Label text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1660} start={B(10.5)} end={E} font="khSans" size={30} />
+      <Label text="ខ្ញី · កាហ្វេ · ស្ករត្នោត" y={1660} start={B(10.5)} end={E} font="khSans" size={34} />
     </>
   );
 };
