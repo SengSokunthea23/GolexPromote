@@ -172,7 +172,7 @@ export const Shell: React.FC<ShellProps> = ({ L, t0, enter, exit, bg = 'silk', c
     }
   }
   return (
-    <AbsoluteFill style={{ clipPath: clip, opacity }}>
+    <AbsoluteFill style={{ clipPath: clip, opacity, isolation: 'isolate' }}>
       <DirBlur x={dx} style={{ position: 'absolute', inset: 0, transform: tf || undefined, filter: filter || undefined, transformOrigin: `${origin[0]}px ${origin[1]}px` }}>
         <AbsoluteFill style={{ overflow: 'hidden' }}>
           {bg === 'silk' && <Silk t0={t0} cy={cy} warm={warm} />}

@@ -36,7 +36,7 @@ All on-screen Khmer text, scene by scene. Click a line number to open the exact 
 | Line | Khmer text | Element |
 |---|---|---|
 | [112](../../src/promo/scenes.tsx#L112) | គ្មានជាតិខ្លាញ់ | List / card item |
-| [113](../../src/promo/scenes.tsx#L113) | មិនមានសារធាតុបន្ថែម | List / card item |
+| [113](../../src/promo/scenes.tsx#L113) | គ្មានសារធាតុបន្ថែម | List / card item |
 | [114](../../src/promo/scenes.tsx#L114) | ផលិតពីខ្ញីបេនតុងគុណភាពខ្ពស់ | List / card item |
 | [115](../../src/promo/scenes.tsx#L115) | ស្ករត្នោតគុណភាពខ្ពស់ | List / card item |
 | [125](../../src/promo/scenes.tsx#L125) | ក្នុងមួយកញ្ចប់មាន | Label |
@@ -72,7 +72,6 @@ All on-screen Khmer text, scene by scene. Click a line number to open the exact 
 | Line | Khmer text | Element |
 |---|---|---|
 | [222](../../src/promo/scenes.tsx#L222) | ពេលវេលាដ៏កក់ក្តៅប្រចាំថ្ងៃ | Headline |
-| [226](../../src/promo/scenes.tsx#L226) | នៃភាពកក់ក្តៅ | Text |
 
 ## 8 · End card — 27.00 – 30.00 s
 
@@ -85,7 +84,7 @@ All on-screen Khmer text, scene by scene. Click a line number to open the exact 
 
 ---
 
-**38 Khmer text items.**
+**37 Khmer text items.**
 
 ### Editing notes
 

@@ -179,6 +179,18 @@ export const createMixer = ({ sr = 48000, dur = 30, seed = 7 } = {}) => {
     }, d, g, 0, 0.7);
   };
 
+  /** Soft electronic pulse: a short, rounded synth blip with a tiny pitch drop (digital UI / HUD moments). */
+  const pulse = (t0, f = 220, g = 0.15, pan = 0) => {
+    f = snap(f);
+    const lp = biquad('lp', 2400);
+    let ph = 0;
+    put(t0, (t) => {
+      ph += (2 * Math.PI * f * (1 + 0.25 * Math.exp(-t / 0.015))) / SR;
+      const y = Math.sin(ph + 0.6 * Math.sin(ph * 2)) * Math.exp(-t / 0.12) * Math.min(1, t / 0.002);
+      return lp(y);
+    }, 0.5, g, pan, 0.35);
+  };
+
   /* ── reverb + write ── */
   const reverb = (inp, spread) => {
     const out = new Float32Array(N);
@@ -212,5 +224,5 @@ export const createMixer = ({ sr = 48000, dur = 30, seed = 7 } = {}) => {
     return peak;
   };
 
-  return { setScale, snap, twinkles, pad, transition, swish, drop, whoosh, swell, impact, softImpact, boom, bell, goldDraw, glass, pop, tick, rustle, riser, pour, steam, ambience, bloom, signature, write, rnd };
+  return { pulse, setScale, snap, twinkles, pad, transition, swish, drop, whoosh, swell, impact, softImpact, boom, bell, goldDraw, glass, pop, tick, rustle, riser, pour, steam, ambience, bloom, signature, write, rnd };
 };

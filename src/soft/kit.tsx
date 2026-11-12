@@ -121,7 +121,7 @@ export const Shell: React.FC<ShellProps> = ({ L, enter, exit, from = { x: 340, y
   }
   const bloom = enter === 'light' ? Math.max(0, 1 - p) * 0.9 : 0;
   return (
-    <AbsoluteFill style={{ clipPath: clip, WebkitClipPath: clip, opacity }}>
+    <AbsoluteFill style={{ clipPath: clip, WebkitClipPath: clip, opacity, isolation: 'isolate' }}>
       <DirBlur y={vy} style={{ position: 'absolute', inset: 0, transform: tf || undefined, filter: filter || undefined, transformOrigin: `${origin[0]}px ${origin[1]}px` }}>
         <AbsoluteFill style={{ overflow: 'hidden' }}>{children}</AbsoluteFill>
       </DirBlur>

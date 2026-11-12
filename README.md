@@ -217,3 +217,118 @@ grid; its instruments live in `scripts/lib/sfx-engine.mjs`.
 - light-bloom swells and a bell-chord logo signature
 
 Code: `src/soft/` (`theme.ts`, `timeline.ts`, `kit.tsx`, `scenes.tsx`, `SoftCommercial.tsx`).
+
+---
+
+## v5 — Midnight Luxury Edition (Khmer)
+
+Composition **GolexMidnight** · 1080 × 1920 · 30 fps · 30 s. This is a dark cinematic theme: a midnight-black
+stage with burgundy haze, a faint gold perspective grid, spotlights, rim lighting and controlled gold light. The
+Khmer copy follows the Soft Luxury wording (`docs/khmer-text/GolexSoftLux.md`). The music is **Rising Gold**
+(128.75 BPM, B major): a quiet dark intro, with the beat dropping in at 6.35 s on the pack close-up.
+
+```bash
+npm run render:midnight  # out/GOLEX_Midnight_Luxury_Khmer_1080x1920.mp4
+npm run sfx:midnight     # re-synthesise public/audio/golex-midnight-sfx.wav
+```
+
+**Palette:** midnight #08090A · espresso #211416 · burgundy #4A1118 · ruby #941B27 · crimson #A71924 ·
+antique gold #C99B45 · champagne #F4D98A · ivory #FFF0D2.
+**Type:** Hanuman (Khmer headlines) · Kantumruy Pro (Khmer details) · Bodoni Moda italic (English accents) ·
+Manrope (micro labels).
+
+| # | Scene | Time | Transition in | Techniques |
+|---|-------|------|---------------|------------|
+| 1 | Opening | 0.00–3.55 | from black | thin gold line, logo emerges and is traced in gold light, sheen, Khmer headline |
+| 2 | Split | 3.55–6.35 | gold light sweep | pack emerges from darkness under a spotlight, sliding Khmer headline, dark glass weight card |
+| 3 | Macro | 6.35–9.14 | flash (on the drop) | pack close-up in a glowing frame, two metallic light sweeps |
+| 4 | Cup | 9.14–12.87 | glowing circle | rim-lit cup, pour, gold-backlit steam, HUD halo, 3D ingredient orbit |
+| 5 | Texture | 12.87–15.66 | zoom | crema in a glowing lens, depth-of-field ingredients |
+| 6 | Ingredients | 15.66–19.39 | gold light sweep | ginger, beans and sugar emerge with a gold outline; annotation lines draw to their labels |
+| 7 | Lifestyle | 19.39–22.19 | from black | model with warm rim light and ruby glow, editorial type |
+| 8 | Highlights | 22.19–24.99 | focus pull | model 2, dark glass feature cards with self-drawing gold icons, animated gold curve |
+| 9 | Final | 24.99–30.00 | flash | spotlight hero line-up on a dark stage, logo traced in light, tagline, CTA |
+
+**Sound design** (`golex-midnight-sfx.wav` at 0.5 under the music at 0.75):
+- exactly one transition sound per cut
+- deep impacts only on the logo, the drop and the end card
+- a low B drone
+- B-major-tuned shimmers, chimes and logo chord
+- soft electronic pulses on the HUD and glass cards
+- digital ticks, pour and steam
+
+Code: `src/midnight/` (`theme.ts`, `timeline.ts`, `kit.tsx`, `scenes.tsx`, `MidnightCommercial.tsx`).
+
+---
+
+## v6 — The Golden Ginger World · 3D Isometric Storytelling Edition (Khmer)
+
+Composition **GolexIsoWorld** · 1080 × 1920 · 30 fps · 30 s. This is a playful but premium miniature world:
+pastel peach and pink stages that morph colour at every cut, floating isometric islands with soft ground
+shadows, a miniature GOLEX café, champagne-gold ribbons, 3D-flipping info cards and isometric feature icons.
+The Khmer copy follows `docs/khmer-text/GolexSoftLux.md`. The music is **Sunny Morning** (104.35 BPM, D major).
+
+```bash
+npm run render:iso   # out/GOLEX_Golden_Ginger_World_Khmer_1080x1920.mp4
+npm run sfx:iso      # re-synthesise public/audio/golex-iso-sfx.wav
+```
+
+| # | Scene | Time | Transition in | Techniques |
+|---|-------|------|---------------|------------|
+| 1 | Golden Ginger World | 0.00–3.04 | focus | floating island with a miniature GOLEX café that builds up, curved title text, gold ribbon |
+| 2 | Product intro | 3.04–6.49 | gold ribbon sweep | package floats down onto a ruby pedestal, 3D info card with a Khmer-numeral counter (០ → ២៥) |
+| 3 | Sachet → package | 6.49–9.94 | 3D flip | the sachet grows and transforms into the package through a mask, dimensional "5 IN 1" |
+| 4 | Cup | 9.94–13.39 | circle reveal | cup turns in on an island, pour, steam, ginger, beans and sugar orbit |
+| 5 | Bean pathway | 13.39–15.69 | zoom | coffee beans flow along a curved path into the crema close-up |
+| 6 | Ingredient world | 15.69–20.29 | gold ribbon sweep | three ingredient islands linked by a gold path, each with a 3D card |
+| 7 | Lifestyle | 20.29–22.59 | camera pull-back | model in an arch, cup island, parallax ingredients |
+| 8 | Highlights | 22.59–24.89 | 3D flip | feature cards with isometric icons (claims from the pack) |
+| 9 | Final hero | 24.89–30.00 | gold ribbon sweep | everything on one ruby island, logo with sheen, tagline, CTA |
+
+**Sound design** (`golex-iso-sfx.wav` at 0.5 under the music at 0.72), D-major-tuned:
+- exactly one transition sound per cut
+- pops and bounces only when something lands
+- shimmers on the ribbons and gold paths
+- glass tings for the cards
+- pour and steam
+- a D-major logo chord
+
+Code: `src/iso/` (`timeline.ts`, `kit.tsx`, `scenes.tsx`, `IsoCommercial.tsx`).
+
+---
+
+## v7 — Editorial Kinetic Typography Edition (Khmer)
+
+Composition **GolexEditorial** · 1080 × 1920 · 30 fps · 35 s. Typography is the hero: oversized italic Bodoni
+words as a graphic layer (letter by letter, in front of or behind the product), Khmer headlines word by word.
+It uses abstract 2D graphics (morphing organic shapes, drawn gold lines, waveforms, fine grids, dot fields),
+editorial split screens and cropped photography. There is no 3D and there are no miniatures. The Khmer copy
+follows `docs/khmer-text/GolexSoftLux.md`. The music is **Sunset Breeze** (100 BPM, G major); the groove lifts
+at 10.62 s on the cup scene. The song is extended with a two-bar loop hidden under the ingredients cut (`MUSIC` in `src/editorial/timeline.ts`).
+
+```bash
+npm run render:editorial  # out/GOLEX_Editorial_Kinetic_Khmer_1080x1920.mp4
+npm run sfx:editorial     # re-synthesise public/audio/golex-editorial-sfx.wav
+```
+
+| # | Scene | Time | Transition in | Techniques |
+|---|-------|------|---------------|------------|
+| 1 | Brand intro | 0.00–3.42 | focus | ivory grid, oversized outline "Ginger", morphing ruby shape, Khmer title |
+| 2 | Product intro | 3.42–7.02 | ruby colour-block wipe | split screen; pack resolves from silhouette; vertical "Discover"; info card |
+| 3 | 5 IN 1 | 7.02–10.62 | white flash | burgundy, oversized "5 in 1" behind a cropped pack close-up, gold sweep |
+| 4 | Cup | 10.62–14.21 | zoom | cup in front of an oversized "Richness", curved gold lines, steam |
+| 5 | Texture | 14.21–17.81 | circle reveal | ruby, crema in a circle, gold waveforms, floating ingredients |
+| 6 | Ingredients | 17.81–22.61 | directional slide | editorial grid of cropped photos, numbered labels, gold connectors |
+| 7 | Lifestyle | 22.61–26.21 | burgundy wipe | split screen; the model in a ruby crop; "Warmth" crossing in front |
+| 8 | Highlights | 26.21–29.81 | focus | grid layout, model on a ruby circle, line-icon feature cards, "Pure" |
+| 9 | Final | 29.81–35.00 | white flash | burgundy band, "Golden" behind the products, logo sweep, CTA |
+
+**Sound design** (`golex-editorial-sfx.wav` at 0.5 under the music at 0.75), G-major-tuned:
+- one transition sound per cut
+- one soft swish per oversized word
+- impacts only on the big headlines
+- glass tings for cards
+- pour and steam
+- a G-major logo chord
+
+Code: `src/editorial/` (`theme.ts`, `timeline.ts`, `kit.tsx`, `scenes.tsx`, `EditorialCommercial.tsx`).

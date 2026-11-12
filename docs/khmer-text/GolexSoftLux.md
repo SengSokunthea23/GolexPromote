@@ -70,7 +70,7 @@ All on-screen Khmer text, scene by scene. Click a line number to open the exact 
 | Line | Khmer text | Element |
 |---|---|---|
 | [240](../../src/soft/scenes.tsx#L240) | គ្មានជាតិខ្លាញ់ | List / card item |
-| [241](../../src/soft/scenes.tsx#L241) | មិនបន្ថែមរសជាតិសិប្បនិម្មិត | List / card item |
+| [241](../../src/soft/scenes.tsx#L241) | គ្មានសារធាតុបន្ថែម | List / card item |
 | [270](../../src/soft/scenes.tsx#L270) | ជម្រើសល្អ | Headline |
 | [271](../../src/soft/scenes.tsx#L271) | សម្រាប់រាល់ថ្ងៃ | Headline |
 

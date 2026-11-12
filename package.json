@@ -10,6 +10,7 @@
     "render:khmer": "remotion render src/index.ts GolexKhmer out/GOLEX_Golden_Ginger_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
     "render:lux": "remotion render src/index.ts GolexKhmerLux out/GOLEX_Royal_Silk_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
     "render:soft": "remotion render src/index.ts GolexSoftLux out/GOLEX_Soft_Luxury_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
+    "render:midnight": "remotion render src/index.ts GolexMidnight out/GOLEX_Midnight_Luxury_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
     "still": "remotion still src/index.ts GolexCommercial out/poster.png --frame=1680",
     "typecheck": "tsc --noEmit",
     "sfx": "python3 scripts/generate-sfx.py",
@@ -17,9 +18,15 @@
     "promo-audio": "python3 scripts/generate-promo-audio.py",
     "sfx:lux": "node scripts/generate-lux-sfx.mjs",
     "sfx:soft": "node scripts/generate-soft-sfx.mjs",
-    "logo": "remotion still src/index.ts LogoCutout public/promo/logo-brand.png --image-format=png --frame=0"
+    "sfx:midnight": "node scripts/generate-midnight-sfx.mjs",
+    "logo": "remotion still src/index.ts LogoCutout public/promo/logo-brand.png --image-format=png --frame=0",
+    "render:iso": "remotion render src/index.ts GolexIsoWorld out/GOLEX_Golden_Ginger_World_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
+    "sfx:iso": "node scripts/generate-iso-sfx.mjs",
+    "render:editorial": "remotion render src/index.ts GolexEditorial out/GOLEX_Editorial_Kinetic_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
+    "sfx:editorial": "node scripts/generate-editorial-sfx.mjs"
   },
   "dependencies": {
+    "@fontsource/bodoni-moda": "^5.3.0",
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/hanuman": "^5.3.0",
     "@fontsource/italiana": "^5.3.0",
