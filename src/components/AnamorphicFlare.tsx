@@ -11,7 +11,7 @@ export const AnamorphicFlare: React.FC<{ end?: number; y?: number }> = ({ end = 
   const a = Math.sin(clamp(t / end) * Math.PI);
   const x = 100 + (880 * t) / end;
   return (
-    <AbsoluteFill style={{ mixBlendMode: 'screen', opacity: a }}>
+    <AbsoluteFill style={{ mixBlendMode: 'screen', opacity: a }} hidden>
       <div
         style={{
           position: 'absolute',

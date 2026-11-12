@@ -54,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({ src, cx, cy, w, start, end, ein = 1.
           width: '100%',
           display: 'block',
           filter: 'drop-shadow(0 38px 46px rgba(23,11,13,0.6))',
-          translate: '-12.2px 0px'
+          translate: '9.1px 70.7px'
         }}
       />
     </div>
