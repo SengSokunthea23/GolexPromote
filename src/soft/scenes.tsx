@@ -80,7 +80,16 @@ export const MacroScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <Label text="PREMIUM QUALITY" y={190} start={0.3} end={E} />
       <Frame x={90} y={270} w={900} h={1080} r={60} start={0} end={E} dy={0} bg={SC.ruby}>
         <div style={{ position: 'absolute', inset: 0, transform: `translateY(${pan}px) scale(${push})`, transformOrigin: '450px 540px' }}>
-          <Img src={img('pack.png')} style={{ position: 'absolute', width: 2060, left: -763, top: -10 }} />
+          <Img
+            src={img('pack.png')}
+            style={{
+              position: 'absolute',
+              width: 2060,
+              left: -763,
+              top: -10,
+              translate: '30px -4.3px'
+            }}
+          />
         </div>
         {sw > 0 && sw < 1 && <div style={{ position: 'absolute', inset: 0, mixBlendMode: 'screen', background: `linear-gradient(115deg, transparent ${sw * 160 - 45}%, ${rgba('#FFF4D6', 0.55)} ${sw * 160 - 30}%, transparent ${sw * 160 - 15}%)` }} />}
         <div style={{ position: 'absolute', inset: 0, background: `linear-gradient(180deg, transparent 70%, ${rgba(SC.burgundy, 0.55)} 100%)` }} />
