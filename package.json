@@ -23,7 +23,9 @@
     "render:iso": "remotion render src/index.ts GolexIsoWorld out/GOLEX_Golden_Ginger_World_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
     "sfx:iso": "node scripts/generate-iso-sfx.mjs",
     "render:editorial": "remotion render src/index.ts GolexEditorial out/GOLEX_Editorial_Kinetic_Khmer_1080x1920.mp4 --codec=h264 --crf=18",
-    "sfx:editorial": "node scripts/generate-editorial-sfx.mjs"
+    "sfx:editorial": "node scripts/generate-editorial-sfx.mjs",
+    "render:promo": "remotion render src/index.ts GolexPromo out/GOLEX_Promo_English_1080x1920.mp4 --codec=h264 --crf=18",
+    "render:all": "npm run render:promo && npm run render:khmer && npm run render:lux && npm run render:soft && npm run render:midnight && npm run render:iso && npm run render:editorial && npm run render"
   },
   "dependencies": {
     "@fontsource/bodoni-moda": "^5.3.0",
