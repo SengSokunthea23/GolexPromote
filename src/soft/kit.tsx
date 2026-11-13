@@ -315,7 +315,17 @@ export const Product: React.FC<ProductProps> = ({
   const speed = mb * Math.pow(1 - p, 2.2);
   const body = (
     <div style={{ position: 'relative' }}>
-      <Img src={src} style={{ width: '100%', display: 'block', WebkitMaskImage: mask, maskImage: mask, filter: shadow === 'drop' ? `drop-shadow(0 30px 34px ${rgba(SC.burgundy, 0.35)})` : undefined }} />
+      <Img
+        src={src}
+        style={{
+          width: '100%',
+          display: 'block',
+          WebkitMaskImage: mask,
+          maskImage: mask,
+          filter: shadow === 'drop' ? `drop-shadow(0 30px 34px ${rgba(SC.burgundy, 0.35)})` : undefined,
+          translate: '9.4px -18.8px'
+        }}
+      />
       {sweepK !== undefined && (
         <div
           style={{

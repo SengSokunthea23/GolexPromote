@@ -12,7 +12,7 @@
 export const S_FPS = 30;
 export const S_W = 1080;
 export const S_H = 1920;
-export const S_DURATION_S = 34;
+export const S_DURATION_S = 30;
 
 export const S_BEAT = 0.6667;
 export const S_BAR = S_BEAT * 4;
@@ -29,7 +29,7 @@ export const beats = (pace: number) => (k: number) => +((Math.round(k * pace * 2
 /** Optional music loop (null = play the song straight through). */
 /** Music loop: at video sbar(6) the song jumps back one bar (to the music at sbar(5)), hidden under the texture cut,
  *  so it still ends naturally at ≈ 34.5 s. Times are on the video grid; the composition adds MUSIC_TRIM. */
-export const MUSIC: { jumpAt: number; resumeFrom: number } | null = { jumpAt: sbar(6), resumeFrom: sbar(5) };
+export const MUSIC: { jumpAt: number; resumeFrom: number } | null = null;
 
 export const S_OVERLAP = 0.6;
 
@@ -41,10 +41,10 @@ export const S_SCENES: { id: string; from: number; to: number; enter: SoftTransi
   { id: 'split', from: sbar(0.5), to: sbar(1.5), enter: 'zoom', pace: 0.5 }, //         3.17 – 5.84
   { id: 'macro', from: sbar(1.5), to: sbar(2.5), enter: 'blur', pace: 0.5 }, //         5.84 – 8.51
   { id: 'ingredients', from: sbar(2.5), to: sbar(4.5), enter: 'sheet', pace: 0.67 }, // 8.51 – 13.84 five ingredients
-  { id: 'cup', from: sbar(4.5), to: sbar(6), enter: 'card', pace: 0.75 }, //            13.84 – 17.84
-  { id: 'texture', from: sbar(6), to: sbar(7), enter: 'zoom', pace: 0.5 }, //           17.84 – 20.51
-  { id: 'model1', from: sbar(7), to: sbar(8), enter: 'card', pace: 0.5 }, //            20.51 – 23.17
-  { id: 'highlights', from: sbar(8), to: sbar(9), enter: 'blur', pace: 0.5 }, //        23.17 – 25.84
-  { id: 'brew', from: sbar(9), to: sbar(10.5), enter: 'zoom', pace: 0.75 }, //         25.84 – 29.84 how to brew: 1 sachet + 60–70 ml
-  { id: 'final', from: sbar(10.5), to: S_DURATION_S, enter: 'light', pace: 0.7 }, //    29.84 – 34.00 logo + order pill
+  { id: 'cup', from: sbar(4.5), to: sbar(5.5), enter: 'card', pace: 0.75 }, //          13.84 – 16.51
+  { id: 'texture', from: sbar(5.5), to: sbar(6.5), enter: 'zoom', pace: 0.5 }, //       16.51 – 19.17
+  { id: 'model1', from: sbar(6.5), to: sbar(7.5), enter: 'card', pace: 0.5 }, //        19.17 – 21.84
+  { id: 'highlights', from: sbar(7.5), to: sbar(8.5), enter: 'blur', pace: 0.5 }, //    21.84 – 24.51
+  { id: 'brew', from: sbar(8.5), to: sbar(9.5), enter: 'zoom', pace: 0.75 }, //         24.51 – 27.17 how to brew
+  { id: 'final', from: sbar(9.5), to: S_DURATION_S, enter: 'light', pace: 0.7 }, //     27.17 – 30.00 logo + order pill
 ];

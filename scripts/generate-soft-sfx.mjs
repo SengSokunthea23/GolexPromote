@@ -1,5 +1,5 @@
 /**
- * Sound design for the Soft Luxury Edition (GolexSoftLux) — 34 s Khmer-script cut.
+ * Sound design for the Soft Luxury Edition (GolexSoftLux) — 30 s Khmer-script cut.
  * Usage: node scripts/generate-soft-sfx.mjs  ->  public/audio/golex-soft-sfx.wav
  *
  * Every sound answers a visual event in src/soft/scenes.tsx. The scene table and the pace-scaled,
@@ -9,7 +9,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createMixer } from './lib/sfx-engine.mjs';
 
-const DUR = 34;
+const DUR = 30;
 const BEAT = 0.6667;
 const bar = (n) => 1.839 + n * BEAT * 4; // music starts 1.5 beats in (MUSIC_TRIM) — downbeats at 1.839 + n·bar
 const q = (k, pace) => (Math.round(k * pace * 2) / 2) * BEAT; // same snapping as beats() in timeline.ts
@@ -21,18 +21,37 @@ const S = {
   macro: [bar(1.5), 0.5],
   ingredients: [bar(2.5), 0.67],
   cup: [bar(4.5), 0.75],
-  texture: [bar(6), 0.5],
-  model1: [bar(7), 0.5],
-  highlights: [bar(8), 0.5],
-  brew: [bar(9), 0.75],
-  final: [bar(10.5), 0.7],
+  texture: [bar(5.5), 0.5],
+  model1: [bar(6.5), 0.5],
+  highlights: [bar(7.5), 0.5],
+  brew: [bar(8.5), 0.75],
+  final: [bar(9.5), 0.7],
 };
 const T = (id) => S[id][0]; //                          scene start
 const at = (id, k) => S[id][0] + q(k, S[id][1]); //     scene beat k  (== B(k) in the scene)
 const O = (k) => 0.505 + q(k, S.open[1]); //            opening beat k (== B0(k), S_PICKUP = 0.505)
 
 const m = createMixer({ sr: 48000, dur: DUR, seed: 11 });
+// "Golden Lounge" is in B♭ major — every bell, shimmer, glass ting and bloom is tuned to B♭ major pentatonic
+m.setScale([466.16, 523.25, 587.33, 698.46, 783.99]);
+const BB_CHORD = [1396.91, 1864.66, 2349.32, 2793.83]; // F6 B♭6 D7 F7 — logo signature
 m.ambience(0.03); // warm coffee-house air under everything
+
+/* ═══ BACKGROUND BED — quiet, in the song's key, sitting ≈ 12 dB under the music ═══ */
+// 1 · warm B♭ pad: the ivory light breathing with each bar (bar = 2.667 s)
+m.pad(0, DUR, [233.08, 349.23, 466.16], 0.07);
+// 2 · sparse gold-dust twinkles on the half-beat grid, matching the gold particles on screen;
+//     a little denser on the ruby product stages (cup, final) and silent under busy moments
+const BEAT0 = 0.505; // first music beat in video time
+const TW = [['open', 0.3, 0.25], ['split', 0, 0.2], ['macro', 0, 0.2], ['ingredients', 0, 0.12], ['cup', 0, 0.35], ['texture', 0, 0.25], ['model1', 0, 0.18], ['highlights', 0, 0.2], ['brew', 0, 0.12], ['final', 0, 0.35]];
+TW.forEach(([id, off, prob], i) => {
+  const t0 = S[id][0] + off;
+  const t1 = i < TW.length - 1 ? S[TW[i + 1][0]][0] - 0.3 : DUR - 1.2;
+  m.twinkles(t0, t1, { grid0: BEAT0, step: BEAT / 2, prob, g: 0.05, lo: 1400, hi: 4200, dec: 0.45 });
+});
+// 3 · short builds into the two closing scenes
+m.riser(S.brew[0] - 0.8, S.brew[0], 0.06);
+m.riser(S.final[0] - 0.9, S.final[0], 0.08);
 
 /* 01 open — GOLEX plate · "ឥឡូវនេះមានចេញ" O(1) · gold line O(1.5) · gold line-2 O(2) */
 m.bloom(0.35, 0.6, 0.1);
@@ -77,7 +96,7 @@ m.pour(T('cup') + 0.4, 1.2, 0.32);
 m.steam(T('cup') + 1.2, T('texture') + 0.5, 0.05);
 m.goldDraw(T('cup') + 0.3, 1.4, 0.035, 1100, 3000);
 m.softImpact(at('cup', 2) + 0.15, 0.3); m.bell(at('cup', 2) + 0.17, 1760, 0.08, 1.1);
-m.bell(T('cup') + 1.95, 2349, 0.06, 0.9, 0.3); m.bell(T('cup') + 3.5, 2093, 0.06, 0.9, -0.3); // cup sheens
+m.bell(T('cup') + 1.95, 2349, 0.06, 0.9, 0.3); // cup sheen
 
 /* 06 "រសជាតិឆ្ងាញ់" — crema lens */
 m.whoosh(T('texture'), 1.0, 0.4, 0, 250, 4200);
@@ -104,30 +123,33 @@ m.pop(at('highlights', 1) + 0.2, 700, 0.12);
 m.softImpact(at('highlights', 2) + 0.12, 0.3); m.bell(at('highlights', 2) + 0.14, 1760, 0.07, 1.0);
 m.pop(at('highlights', 2.5) + 0.1, 520, 0.18); m.goldDraw(at('highlights', 2.5) + 0.3, 0.6, 0.04, 1600, 4000, -0.5); // seal + check mark
 
-/* 09 how to brew — sachet pours powder, water pours, measuring glass fills to 60–70 */
+/* 09 how to brew — sachet pours powder, water pours, the dial fills to 60–70 */
 const W = T('brew');
 m.whoosh(W, 1.0, 0.4, 0, 250, 4200);
 m.softImpact(W + 0.05, 0.25);
-m.pop(W + 0.35, 640, 0.12); //                          "ឆុងអោយបានឆ្ងាញ់"
-m.rustle(W + 0.3, 0.35, 0.07, 0.5); //                   sachet floats in
-m.tick(W + 0.9, 0.08, 0.2); //                          sachet tips over
-for (let i = 0; i < 7; i++) m.rustle(W + 1.15 + i * 0.12, 0.14, 0.05, -0.1); // powder shaken out
-m.whoosh(W + 2.1, 0.5, 0.08, 0.6, 400, 2500); //         sachet lifts away
-m.rustle(W + 1.45, 0.3, 0.05, 0.6); //                   measuring glass slides in
-m.pour(W + 2.05, 1.2, 0.34); //                         water pours
-m.bell(W + 3.2, 1760, 0.08, 1.0, 0.5); m.goldDraw(W + 3.05, 0.4, 0.035, 1800, 4000, 0.5); // level reaches 60–70
-m.pop(W + 2.75, 520, 0.18); m.glass(W + 2.8, 2093, 0.1); // brewing pill
-m.steam(W + 3.0, W + 4.5, 0.05);
+m.pop(W + 0.2, 640, 0.12); //                          "ឆុងអោយបានឆ្ងាញ់"
+m.rustle(W + 0.15, 0.3, 0.07, 0.5); //                   sachet floats in
+m.tick(W + 0.55, 0.08, 0.2); //                          sachet tips over
+for (let i = 0; i < 5; i++) m.rustle(W + 0.7 + i * 0.11, 0.14, 0.05, -0.1); // powder shaken out
+m.whoosh(W + 1.3, 0.4, 0.07, 0.6, 400, 2500); //         sachet lifts away
+m.goldDraw(W + 0.25, 0.7, 0.03, 1200, 3000); //          measuring dial draws around the cup
+m.pour(W + 1.25, 0.8, 0.34); //                         water pours
+m.bell(W + 2.0, 1760, 0.08, 1.0, 0.5); m.goldDraw(W + 1.9, 0.35, 0.035, 1800, 4000, 0.5); // level reaches 60–70
+m.softImpact(W + 1.6, 0.3); m.bell(W + 1.62, 1396.91, 0.07, 1.0); // "1កញ្ចប់" lands
+m.goldDraw(W + 1.75, 0.45, 0.03, 1800, 4000); //         gold line under it
+m.steam(W + 1.9, W + 3.0, 0.05);
 
 /* 10 final — logo + "បញ្ជាទិញឥឡូវនេះ" pill */
 const F = T('final');
-m.bloom(F + 0.2, 0.7, 0.12);
-m.impact(F + 0.03, 0.4, 2.4);
+m.bloom(F + 0.2, 0.7, 0.08);
+m.impact(F + 0.03, 0.26, 2.0);
 m.goldDraw(F + 0.25, 1.2, 0.035, 1100, 3200); //       rings draw
 m.pop(F + 0.4, 600, 0.14); //                          logo arrives
-m.signature(F + 1.15, 0.22); //                        logo light sweep
+m.signature(F + 1.33, 0.2, BB_CHORD); //               logo light sweep
+m.softImpact(at('final', 2) + 0.1, 0.22); //              title under the logo
 m.pop(at('final', 3) + 0.15, 520, 0.2); m.glass(at('final', 3) + 0.2, 2093, 0.1); // order pill
-m.bell(F + 2.75, 2637, 0.06, 1.0); //                  second logo sweep
+m.bell(F + 2.53, 2793.83, 0.05, 1.0); //               second logo sweep
+m.tick(at('final', 3) + 0.35, 0.04); //                 certification line
 
 const dest = join(dirname(fileURLToPath(import.meta.url)), '..', 'public', 'audio', 'golex-soft-sfx.wav');
 console.log('ok', dest, 'peak', m.write(dest).toFixed(3));

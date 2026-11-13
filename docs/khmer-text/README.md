@@ -6,7 +6,7 @@
 |---|---|---|---|
 | GolexKhmer — Khmer promo | [GolexKhmer.md](GolexKhmer.md) | 37 | [src/promo/scenes.tsx](../../src/promo/scenes.tsx) |
 | GolexKhmerLux — Royal Silk (សូត្រមាស) | [GolexKhmerLux.md](GolexKhmerLux.md) | 28 | [src/lux/scenes.tsx](../../src/lux/scenes.tsx) |
-| GolexSoftLux — Soft Luxury Edition | [GolexSoftLux.md](GolexSoftLux.md) | 19 | [src/soft/scenes.tsx](../../src/soft/scenes.tsx) |
+| GolexSoftLux — Soft Luxury Edition | [GolexSoftLux.md](GolexSoftLux.md) | 21 | [src/soft/scenes.tsx](../../src/soft/scenes.tsx) |
 | GolexMidnight — Midnight Luxury Edition | [GolexMidnight.md](GolexMidnight.md) | 30 | [src/midnight/scenes.tsx](../../src/midnight/scenes.tsx) |
 | GolexIsoWorld — The Golden Ginger World (3D Isometric) | [GolexIsoWorld.md](GolexIsoWorld.md) | 29 | [src/iso/scenes.tsx](../../src/iso/scenes.tsx) |
 | GolexEditorial — Editorial Kinetic Typography | [GolexEditorial.md](GolexEditorial.md) | 30 | [src/editorial/scenes.tsx](../../src/editorial/scenes.tsx) |

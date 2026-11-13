@@ -19,11 +19,11 @@ const XF = 4; // crossfade frames at the loop point
  */
 const CUT_TIMES = S_SCENES.slice(1).map((s) => s.from);
 const FINAL = S_SCENES[S_SCENES.length - 1];
-const LOGO_T = FINAL.from + 1.15; // final scene: logo light sweep
+const LOGO_T = FINAL.from + 1.33; // final scene: logo light sweep
 const duck = (t: number) => {
   let d = 0;
-  for (const c of CUT_TIMES) d = Math.max(d, 0.45 * Math.exp(-(((t - c) / (t < c ? 0.35 : 0.5)) ** 2)));
-  d = Math.max(d, 0.3 * Math.exp(-(((t - LOGO_T) / 0.6) ** 2)));
+  for (const c of CUT_TIMES) d = Math.max(d, 0.2 * Math.exp(-(((t - c) / (t < c ? 0.25 : 0.35)) ** 2)));
+  d = Math.max(d, 0.2 * Math.exp(-(((t - LOGO_T) / 0.5) ** 2)));
   return 1 - d;
 };
 
@@ -88,7 +88,7 @@ export const SoftCommercial: React.FC = () => {
       <FilmGrain opacity={0.03} />
       {MUSIC === null ? (
         /* Music: "Golden Lounge" played straight through to its own ending. */
-        <Audio src={SONG} trimBefore={Math.round(MUSIC_TRIM * fps)} volume={(f) => VOL * duck(f / fps) * interpolate(f, [0, 6, durationInFrames - 30, durationInFrames - 1], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })} />
+        <Audio src={SONG} trimBefore={Math.round(MUSIC_TRIM * fps)} volume={(f) => VOL * duck(f / fps) * interpolate(f, [0, 6, durationInFrames - 50, durationInFrames - 1], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })} />
       ) : (
         /* Music extended by a bar-aligned loop: plays to video jumpAt, then continues from the music at video resumeFrom. */
         <>

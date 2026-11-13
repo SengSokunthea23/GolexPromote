@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@fontsource/bodoni-moda": "^5.3.0",
+    "@fontsource/cinzel": "^5.3.0",
     "@fontsource/cormorant-garamond": "^5.3.0",
     "@fontsource/hanuman": "^5.3.0",
     "@fontsource/italiana": "^5.3.0",

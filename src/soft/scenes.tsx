@@ -16,7 +16,7 @@ import { Img, staticFile } from 'remotion';
 import { useTime } from '../lib/useTime';
 import { Steam } from '../promo/parts';
 import { Cta, Orbit, OrbitPath, PACK_MASK, Pour, img, spr } from '../lux/kit';
-import { Frame, Glass, Ivory, Product, Ring, Ruby, Underline, Words, backOut, cubicInOut, cubicOut, expoOut, exitK, prog } from './kit';
+import { Frame, Glass, Ivory, Label, Product, Ring, Ruby, Underline, Words, backOut, cubicInOut, cubicOut, expoOut, exitK, prog } from './kit';
 import { SC, SF, rgba } from './theme';
 import { S_PICKUP, beats } from './timeline';
 
@@ -51,10 +51,11 @@ const GolexPlate: React.FC<{ cy: number; start: number; end: number }> = ({ cy, 
             <span
               key={i}
               style={{
-                display: 'inline-block', fontFamily: SF.brand, fontWeight: 700, fontSize: 150, lineHeight: 1, letterSpacing: 6,
-                backgroundImage: `linear-gradient(180deg, #FFF3C4 0%, ${SC.softGold} 30%, ${SC.champagne} 55%, ${SC.gold} 80%, #8E6A2A 100%)`,
+                display: 'inline-block', fontFamily: SF.brand, fontWeight: 900, fontSize: 138, lineHeight: 1, letterSpacing: 4,
+                // bright polished gold: a hot highlight band across the upper half, deep amber at the foot
+                backgroundImage: `linear-gradient(180deg, #FFF8D8 0%, #FFE9A0 22%, ${SC.softGold} 40%, #E2B04A 58%, #B9832A 78%, #FFE29A 92%, #C9963C 100%)`,
                 WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent',
-                filter: `drop-shadow(0 4px 2px ${rgba('#1A0508', 0.55)})`,
+                filter: `drop-shadow(0 -1px 0 ${rgba('#FFFFFF', 0.35)}) drop-shadow(0 5px 3px ${rgba('#1A0508', 0.6)}) drop-shadow(0 0 14px ${rgba(SC.softGold, 0.35)})`,
                 transform: `translateY(${110 * (1 - p)}%)`, opacity: Math.min(1, p * 2),
               }}
             >
@@ -98,7 +99,7 @@ export const SplitScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
         <div />
       </Frame>
       <Product src={img('pack.png')} mask={PACK_MASK} x={770} y={930} w={580} start={0.2} end={E} dur={1.4} dx={260} dy={0} s0={0.9} rotY0={-50} sway={5} sheen={[1.3]} shadow="floor" shadowY={0.42} mb={30} z={5} />
-      <Words text="គឺកាហ្វេGolex" x={60} width={540} align="left" y={560} start={B(1)} end={E} size={76} mode="slide" />
+      <Words text="កាហ្វេ Golex" x={60} width={540} align="left" y={560} start={B(1)} end={E} size={76} mode="slide" />
       <Words text="5in1" x={60} width={540} align="left" y={690} start={B(2)} end={E} size={170} weight={900} tone="ruby" mode="scale" />
       <Underline x={64} y={960} w={300} start={B(3)} end={E} from="left" dur={0.8} />
       <Words text="(កាហ្វេខ្ញី)" x={60} width={540} align="left" y={985} start={B(3)} end={E} size={72} tone="gold" mode="slide" />
@@ -132,25 +133,25 @@ export const MacroScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
 
 /* 04 · INGREDIENTS — the five ingredients from the script, one glass card each ──────────────────── */
 /**
- * Natural cream — images/Cream2.png (603×566; the glass bowl sits at ≈ (275, 220), Ø ≈ 380 px).
- * The bowl is centred, turns slowly, and catches two soft glints so the white cream reads as rich and glossy.
+ * Natural cream — images/Cream.png (1280×1179 whipped-cream swirl on transparency). It sits on a warm
+ * caramel-gold stage so the white swirl reads, sways gently and catches two soft glints.
  */
-const CREAM_D = 196; // on-screen bowl diameter
-const CREAM_K = CREAM_D / 380;
+const CREAM_W = 205;
 const CreamArt: React.FC<{ t: number }> = ({ t }) => {
   const g1 = Math.max(0, Math.sin(t * 2.2));
   const g2 = Math.max(0, Math.sin(t * 2.2 + 2.6));
+  const h = CREAM_W * (1179 / 1280);
   return (
     <div style={{ position: 'absolute', left: 0, top: 0 }}>
       <Img
-        src={staticFile('images/Cream2.png')}
+        src={staticFile('images/Cream.png')}
         style={{
-          position: 'absolute', width: 603 * CREAM_K, left: -275 * CREAM_K, top: -220 * CREAM_K,
-          transformOrigin: `${275 * CREAM_K}px ${220 * CREAM_K}px`, transform: `rotate(${t * 9}deg)`,
-          filter: `drop-shadow(0 14px 16px ${rgba(SC.burgundy, 0.45)}) saturate(1.05)`,
+          position: 'absolute', width: CREAM_W, left: -CREAM_W / 2, top: -h / 2 - 4,
+          transform: `rotate(${2.5 * Math.sin(t * 1.3)}deg) scale(${1 + 0.02 * Math.sin(t * 2)})`,
+          filter: `drop-shadow(0 14px 14px ${rgba(SC.burgundy, 0.45)})`,
         }}
       />
-      {[[-34, -40, g1], [40, 18, g2]].map(([x, y, a], i) => (
+      {[[-30, -34, g1], [36, 6, g2]].map(([x, y, a], i) => (
         <div key={i} style={{ position: 'absolute', left: x - 16, top: y - 16, width: 32, height: 32, borderRadius: '50%', opacity: a * 0.9, background: 'radial-gradient(circle, #FFFFFF 0%, rgba(255,255,255,0.5) 30%, transparent 70%)' }} />
       ))}
     </div>
@@ -342,8 +343,8 @@ export const HighlightsScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <Ivory t0={t0} lines={false} />
       <div style={{ position: 'absolute', left: 740 - 440 * d, top: 1120 - 440 * d, width: 880 * d, height: 880 * d, borderRadius: '50%', background: `radial-gradient(circle at 45% 40%, #B0242F 0%, ${SC.ruby} 50%, ${SC.burgundy} 100%)`, zIndex: 1 }} />
       <Ring cx={740} cy={1120} r={470} start={0.4} end={E} dashed opacity={0.8} />
-      <Product src={img('model2.png')} x={770} y={1300} w={1150} start={0.1} end={E} dx={160} dy={0} s0={0.96} blur0={12} bob={3} push={0.015} shadow="none" z={3} />
-      <Words text="ញាំមិនឆ្ងាញ់" y={190} start={B(1)} end={E} size={100} tone="espresso" />
+      <Product src={img('model2.png')} x={650} y={1345} w={1150} start={0.1} end={E} dx={160} dy={0} s0={0.96} blur0={12} bob={3} push={0.015} shadow="none" z={3} />
+      <Words text="ញ៉ាំមិនឆ្ងាញ់" y={190} start={B(1)} end={E} size={100} tone="espresso" />
       <Words text="ធានាប្ដូរលុយវិញ" y={350} start={B(2)} end={E} size={100} weight={900} tone="gold" mode="scale" depth />
       <Seal cx={220} cy={820} start={B(2.5)} end={E} />
     </>
@@ -357,25 +358,27 @@ const Horizon: React.FC<{ top: number }> = ({ top }) => (
 
 /* 09 · HOW TO BREW — "ឆុងអោយបានឆ្ងាញ់": the sachet pours into the cup, water pours in while a measuring
  *      glass fills to the gold 60–70 band; pill "1កញ្ចប់ដាក់ទឹកពី60_70ml" ─────────────────────────────── */
-const CUP = { x: 470, y: 1180, w: 620 }; // cup.png 1100×733 → coffee surface ≈ (484, 1150)
-const SURF = { x: 484, y: 1150 };
-const BEAKER = { x: 790, top: 700, w: 170, bottom: 1300 }; // 0 → 100 ml over 500 px
-const mlY = (ml: number) => BEAKER.bottom - 20 - (ml / 100) * 500;
-const POUR = { powder: [1.15, 2.0], water: [2.05, 3.25] } as const;
+const CUP = { x: 540, y: 1150, w: 640 }; // centred; cup.png 1100×733 → coffee surface ≈ (+14, −31) from centre
+const SURF = { x: 554, y: 1119 };
+/** Measuring dial around the cup: 0 → 100 ml over a 270° arc, open at the bottom where the saucer sits. */
+const DIAL = { cx: 540, cy: 1060, r: 380, a0: 135, sweep: 270 };
+const mlAng = (ml: number) => ((DIAL.a0 + (ml / 100) * DIAL.sweep) * Math.PI) / 180;
+const onDial = (ml: number, r = DIAL.r): [number, number] => [DIAL.cx + r * Math.cos(mlAng(ml)), DIAL.cy + r * Math.sin(mlAng(ml))];
+const POUR = { powder: [0.7, 1.2], water: [1.25, 2.0] } as const;
 
 /** Sachet floats in, tilts over the cup, shakes its powder out, then lifts away. */
 const PouringSachet: React.FC<{ end: number }> = ({ end }) => {
   const t = useTime();
   if (t > end) return null;
-  const pin = backOut(prog(t, 0.15, 0.7), 1.2);
-  const tilt = cubicInOut(prog(t, 0.8, 0.35)) * (1 - cubicInOut(prog(t, 2.0, 0.35)));
-  const away = cubicInOut(prog(t, 2.05, 0.45));
+  const pin = backOut(prog(t, 0.08, 0.45), 1.2);
+  const tilt = cubicInOut(prog(t, 0.45, 0.25)) * (1 - cubicInOut(prog(t, 1.2, 0.25)));
+  const away = cubicInOut(prog(t, 1.25, 0.35));
   const shake = t > POUR.powder[0] && t < POUR.powder[1] ? 3 * Math.sin(t * 40) : 0;
   return (
     <Img
       src={img('sachet.png')}
       style={{
-        position: 'absolute', left: 650 - 75, top: 640 - 222, width: 150, zIndex: 6,
+        position: 'absolute', left: SURF.x + 192 - 75, top: 610 - 222, width: 150, zIndex: 6,
         opacity: Math.min(1, pin * 2) * (1 - away),
         transform: `translate(${60 * away}px, ${-200 * (1 - pin) - 140 * away}px) rotate(${-120 * tilt + shake}deg)`,
         filter: `drop-shadow(0 18px 18px ${rgba(SC.burgundy, 0.3)})`,
@@ -388,7 +391,7 @@ const Powder: React.FC = () => {
   const t = useTime();
   const [a, b] = POUR.powder;
   if (t < a || t > b + 0.6) return null;
-  const mouth = { x: 458, y: 750 };
+  const mouth = { x: SURF.x - 26, y: 720 };
   return (
     <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0, zIndex: 5 }}>
       {Array.from({ length: 60 }, (_, i) => {
@@ -431,59 +434,56 @@ const Water: React.FC = () => {
     </svg>
   );
 };
-/** Measuring glass: ticks every 10 ml, labels 60 and 70, a gold 60–70 band; fills while the water pours. */
-const Beaker: React.FC<{ end: number }> = ({ end }) => {
+/**
+ * Measuring dial: a gold ring around the cup marked every 10 ml. As the water pours, a water-blue arc fills
+ * from 0 to 65 ml; the 60–70 segment is gold with "60" and "70" tags, and a glint pulses when it is reached.
+ */
+const Dial: React.FC<{ end: number }> = ({ end }) => {
   const t = useTime();
   if (t > end) return null;
-  const pin = backOut(prog(t, 1.4, 0.7), 1.2);
+  const pin = cubicOut(prog(t, 0.25, 0.7));
   const fill = 65 * cubicInOut(prog(t, POUR.water[0], POUR.water[1] - POUR.water[0]));
-  const band = cubicOut(prog(t, POUR.water[1] - 0.2, 0.5));
-  const { x, top, w, bottom } = BEAKER;
-  const lvl = mlY(fill);
-  const o = Math.min(1, pin * 2) * exitK(t, end, 0.35);
+  const band = cubicOut(prog(t, POUR.water[1] - 0.15, 0.4));
+  const o = Math.min(1, pin * 1.5) * exitK(t, end, 0.35);
+  const { cx, cy, r, a0, sweep } = DIAL;
+  const k = sweep / 360; // fraction of the circle the dial covers
+  const arc = { pathLength: 1, transform: `rotate(${a0} ${cx} ${cy})`, fill: 'none' } as const;
+  const [hx, hy] = onDial(fill);
   return (
-    <div style={{ position: 'absolute', inset: 0, zIndex: 4, opacity: o, transform: `translateX(${120 * (1 - pin)}px)` }}>
-      <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0, overflow: 'visible' }}>
-        <defs>
-          <clipPath id="beakerIn"><rect x={x + 6} y={top} width={w - 12} height={bottom - top - 6} rx={18} /></clipPath>
-          <linearGradient id="beakerWater" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stopColor="rgba(205,232,248,0.85)" />
-            <stop offset="1" stopColor="rgba(150,195,225,0.75)" />
-          </linearGradient>
-        </defs>
-        <linearGradient id="beakerGold" x1="0" x2="1">
-          <stop offset="0" stopColor="#8E6A2A" /><stop offset="0.3" stopColor={SC.softGold} /><stop offset="0.6" stopColor={SC.champagne} /><stop offset="1" stopColor="#8E6A2A" />
+    <svg width={1080} height={1920} style={{ position: 'absolute', inset: 0, zIndex: 2, opacity: o, overflow: 'visible' }}>
+      <defs>
+        <linearGradient id="dialWater" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stopColor="rgba(120,175,215,0.95)" />
+          <stop offset="1" stopColor="rgba(190,225,245,0.95)" />
         </linearGradient>
-        {/* soft gold glow behind the glass */}
-        <ellipse cx={x + w / 2} cy={(top + bottom) / 2} rx={w * 0.95} ry={(bottom - top) * 0.55} fill={rgba(SC.softGold, 0.25)} filter="blur(30px)" />
-        {/* gold 60–70 band across the glass */}
-        <rect x={x} y={mlY(70)} width={w} height={mlY(60) - mlY(70)} fill={rgba(SC.softGold, 0.6 * band)} />
-        {/* water */}
-        <g clipPath="url(#beakerIn)">
-          <rect x={x} y={lvl} width={w} height={bottom - lvl} fill="url(#beakerWater)" />
-          <path d={`M ${x} ${lvl} Q ${x + w / 4} ${lvl - 5 * Math.sin(t * 6)} ${x + w / 2} ${lvl} T ${x + w} ${lvl}`} fill="none" stroke="#FFFFFF" strokeWidth={3} opacity={fill > 1 ? 0.9 : 0} />
-        </g>
-        {/* glass */}
-        <rect x={x} y={top} width={w} height={bottom - top} rx={22} fill={rgba('#FFFFFF', 0.28)} stroke={rgba(SC.gold, 0.85)} strokeWidth={3} />
-        <rect x={x + 14} y={top + 26} width={10} height={bottom - top - 70} rx={5} fill={rgba('#FFFFFF', 0.7)} />
-        <rect x={x - 10} y={top - 12} width={w + 20} height={22} rx={11} fill="url(#beakerGold)" />
-        <rect x={x - 22} y={bottom - 4} width={w + 44} height={26} rx={13} fill="url(#beakerGold)" />
-        {/* ticks */}
-        {Array.from({ length: 10 }, (_, i) => (i + 1) * 10).map((ml) => (
-          <line key={ml} x1={x + w} y1={mlY(ml)} x2={x + w - (ml % 50 === 0 ? 46 : 28)} y2={mlY(ml)} stroke={rgba(SC.gold, 0.9)} strokeWidth={2.5} />
-        ))}
-        {/* gold bracket + 60 / 70 tags on the left */}
-        <path d={`M ${x - 26} ${mlY(70)} H ${x - 44} V ${mlY(60)} H ${x - 26}`} fill="none" stroke={SC.gold} strokeWidth={4} strokeLinejoin="round" opacity={band} />
-        {[60, 70].map((ml) => (
-          <g key={ml} opacity={0.35 + 0.65 * band}>
-            <line x1={x} y1={mlY(ml)} x2={x + w} y2={mlY(ml)} stroke={SC.gold} strokeWidth={3} opacity={band} />
-            <rect x={x - 146} y={mlY(ml) - 21 + (ml === 70 ? -12 : 12)} width={84} height={42} rx={21} fill={SC.ruby} stroke={SC.softGold} strokeWidth={2} />
-            <text x={x - 104} y={mlY(ml) + 10 + (ml === 70 ? -12 : 12)} textAnchor="middle" fontFamily="Manrope, sans-serif" fontWeight={700} fontSize={28} fill={SC.softGold}>{ml}</text>
+      </defs>
+      {/* track */}
+      <circle cx={cx} cy={cy} r={r} {...arc} stroke={rgba(SC.softGold, 0.35)} strokeWidth={22} strokeLinecap="round" strokeDasharray={`${k * pin} 1`} />
+      <circle cx={cx} cy={cy} r={r + 17} {...arc} stroke={SC.gold} strokeWidth={2} strokeDasharray={`${k * pin} 1`} />
+      <circle cx={cx} cy={cy} r={r - 17} {...arc} stroke={rgba(SC.gold, 0.6)} strokeWidth={1.2} strokeDasharray={`${k * pin} 1`} />
+      {/* gold 60–70 segment */}
+      <circle cx={cx} cy={cy} r={r} {...arc} stroke={SC.gold} strokeWidth={22} strokeDasharray={`${0.1 * k} 1`} strokeDashoffset={-0.6 * k} opacity={0.35 + 0.65 * band} />
+      {/* water fill */}
+      {fill > 0.3 && <circle cx={cx} cy={cy} r={r} {...arc} stroke="url(#dialWater)" strokeWidth={14} strokeLinecap="round" strokeDasharray={`${(fill / 100) * k} 1`} />}
+      {fill > 0.3 && <circle cx={hx} cy={hy} r={10} fill="#FFFFFF" stroke={rgba(SC.gold, 0.9)} strokeWidth={2} />}
+      {/* ticks every 10 ml */}
+      {Array.from({ length: 11 }, (_, i) => i * 10).map((ml) => {
+        const [x1, y1] = onDial(ml, r + 28);
+        const [x2, y2] = onDial(ml, r + (ml % 50 === 0 ? 50 : 40));
+        return <line key={ml} x1={x1} y1={y1} x2={x2} y2={y2} stroke={SC.gold} strokeWidth={ml % 50 === 0 ? 3 : 2} opacity={pin} />;
+      })}
+      {/* 60 / 70 tags */}
+      {[60, 70].map((ml) => {
+        const [x, y] = onDial(ml, r + 92);
+        return (
+          <g key={ml} opacity={0.4 + 0.6 * band} transform={`translate(${x} ${y}) scale(${0.9 + 0.1 * band})`}>
+            <rect x={-44} y={-24} width={88} height={48} rx={24} fill={SC.ruby} stroke={SC.softGold} strokeWidth={2} />
+            <text y={11} textAnchor="middle" fontFamily="Manrope, sans-serif" fontWeight={700} fontSize={30} fill={SC.softGold}>{ml}</text>
           </g>
-        ))}
-        {band > 0 && band < 1 && <circle cx={x + w / 2} cy={(mlY(60) + mlY(70)) / 2} r={30 + 60 * band} fill="none" stroke={SC.softGold} strokeWidth={3} opacity={1 - band} />}
-      </svg>
-    </div>
+        );
+      })}
+      {band > 0 && band < 1 && (() => { const [x, y] = onDial(65); return <circle cx={x} cy={y} r={20 + 70 * band} fill="none" stroke={SC.softGold} strokeWidth={3} opacity={1 - band} />; })()}
+    </svg>
   );
 };
 export const BrewScene: React.FC<SceneProps> = ({ L, t0 }) => {
@@ -492,17 +492,18 @@ export const BrewScene: React.FC<SceneProps> = ({ L, t0 }) => {
     <>
       <Ivory t0={t0} cy={1100} />
       <Horizon top={1330} />
-      <div style={{ position: 'absolute', left: CUP.x - 360, top: 820, width: 720, height: 720, borderRadius: '50%', zIndex: 1, background: `radial-gradient(circle, ${rgba(SC.softGold, 0.55)} 0%, ${rgba(SC.champagne, 0.2)} 40%, transparent 70%)` }} />
-      <Ring cx={CUP.x} cy={1120} r={330} start={0.2} end={E} dur={1.1} opacity={0.8} />
-      <Ring cx={CUP.x} cy={1120} r={372} start={0.4} end={E} dashed opacity={0.55} />
+      <div style={{ position: 'absolute', left: DIAL.cx - 380, top: DIAL.cy - 380, width: 760, height: 760, borderRadius: '50%', zIndex: 1, background: `radial-gradient(circle, ${rgba(SC.softGold, 0.6)} 0%, ${rgba(SC.champagne, 0.22)} 42%, transparent 70%)` }} />
+      <Dial end={E} />
       <Product src={img('cup.png')} x={CUP.x} y={CUP.y} w={CUP.w} start={0} end={E} dur={1.0} dy={120} s0={0.85} shadow="floor" shadowY={0.36} bob={0} z={3} />
       <PouringSachet end={E} />
       <Powder />
       <Water />
-      <Beaker end={E} />
-      <Steam cx={SURF.x} baseY={1060} start={3.0} end={E} height={360} count={6} />
-      <Words text="ឆុងអោយបានឆ្ងាញ់" y={170} start={0.3} end={E} size={100} tone="ruby" mode="scale" depth z={8} />
-      <Cta text="1កញ្ចប់ដាក់ទឹកពី60_70ml" y={1640} start={2.7} end={E} w={700} h={112} />
+      <Steam cx={SURF.x} baseY={1030} start={1.9} end={E} height={360} count={6} />
+      <Words text="ឆុងអោយបានឆ្ងាញ់" y={170} start={POUR.powder[0]} end={E} size={100} tone="ruby" mode="scale" depth z={8} />
+      {/* brewing ratio as editorial typography on the burgundy stage (script words, split over two lines) */}
+      <Words text="1កញ្ចប់" y={1440} start={POUR.powder[0]} end={E} size={124} weight={900} tone="gold" mode="scale" depth z={8} />
+      <Underline x={360} y={1652} w={360} start={POUR.powder[0] + 0.2} end={E} dur={0.5} />
+      <Words text="ដាក់ទឹកពី 60_70ml" y={1700} start={POUR.powder[0] + 0.2} end={E} size={70} weight={700} tone="ivory" z={8} />
     </>
   );
 };
@@ -518,14 +519,16 @@ export const FinalScene: React.FC<SceneProps> = ({ L, t0, pace }) => {
       <Ivory t0={t0} lines={false} />
       <Horizon top={1260 + 700 * (1 - h)} />
       <Ring cx={540} cy={1040} r={420} start={0.3} end={E} dur={1.3} width={2} />
-      <Product src={img('pack.png')} mask={PACK_MASK} x={540} y={1040} w={600} start={0.1} end={E} dur={1.3} dy={240} s0={0.75} sheen={[1.8, 3.4]} shadow="none" bob={6} z={4} />
-      <Product src={img('sachet.png')} x={850} y={1130} w={210} start={0.5} end={E} dur={1.3} dx={240} dy={40} r0={30} rot={7} sheen={[2.2]} shadow="none" bob={8} phase={1} mb={30} z={3} />
-      <Product src={img('cup.png')} x={290} y={1330} w={480} start={0.8} end={E} dur={1.3} dx={-240} dy={40} sheen={[2.5]} shadow="none" bob={6} phase={2} mb={30} z={6} />
-      <Steam cx={300} baseY={1200} start={1.4} end={E} height={260} count={5} />
-      <Product src={img('ginger2.png')} x={850} y={1440} w={260} start={1.1} end={E} dy={160} r0={20} rot={-6} shadow="drop" bob={7} phase={3} z={7} />
-      <Product src={spr('bean2.png')} x={120} y={900} w={100} start={1.3} end={E} dy={100} r0={40} shadow="drop" bob={10} phase={4} z={2} />
-      <Product src={img('logo-brand.png')} x={540} y={300} w={520} start={B(1)} end={E} dur={1.2} dy={-50} s0={0.8} blur0={18} sheen={[1.1, 2.7]} shadow="drop" bob={3} z={8} />
-      <Cta text="បញ្ជាទិញឥឡូវនេះ" y={1660} start={B(3)} end={E} w={620} h={116} />
+      <Product src={img('pack.png')} mask={PACK_MASK} x={540} y={1040} w={600} start={0.1} end={E} dur={1.3} dy={240} s0={0.75} sheen={[1.3]} shadow="none" bob={6} z={4} />
+      <Product src={img('sachet.png')} x={850} y={1130} w={210} start={0.3} end={E} dur={1.1} dx={240} dy={40} r0={30} rot={7} sheen={[1.6]} shadow="none" bob={8} phase={1} mb={30} z={3} />
+      <Product src={img('cup.png')} x={290} y={1330} w={480} start={0.45} end={E} dur={1.1} dx={-240} dy={40} sheen={[1.8]} shadow="none" bob={6} phase={2} mb={30} z={6} />
+      <Steam cx={300} baseY={1200} start={1.0} end={E} height={260} count={5} />
+      <Product src={img('ginger2.png')} x={850} y={1440} w={260} start={0.6} end={E} dy={160} r0={20} rot={-6} shadow="drop" bob={7} phase={3} z={7} />
+      <Product src={spr('bean2.png')} x={120} y={900} w={100} start={0.75} end={E} dy={100} r0={40} shadow="drop" bob={10} phase={4} z={2} />
+      <Product src={img('logo-brand.png')} x={540} y={300} w={520} start={B(1)} end={E} dur={1.2} dy={-50} s0={0.8} blur0={18} sheen={[1.0, 2.2]} shadow="drop" bob={3} z={8} />
+      <Words text="បទពិសោធន៍ថ្មី|កាហ្វេខ្ញី 5IN1" y={480} start={B(2)} end={E} size={76} tone="ruby" stagger={0.15} gap={20} depth z={8} />
+      <Cta text="បញ្ជាទិញឥឡូវនេះ" y={1620} start={B(3)} end={E} w={620} h={116} />
+      <Label text="HALAL  ·  MeSTI  ·  ISO 9001  ·  ISO 22000" y={1800} start={B(3) + 0.3} end={E} tone="ivory" size={18} tracking={5} dash={false} z={8} />
     </>
   );
 };

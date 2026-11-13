@@ -1,6 +1,6 @@
 # GolexSoftLux — Soft Luxury Edition
 
-Composition **GolexSoftLux** · 34 s · music: Golden Lounge · source: [src/soft/scenes.tsx](../../src/soft/scenes.tsx)
+Composition **GolexSoftLux** · 30 s · music: Golden Lounge · source: [src/soft/scenes.tsx](../../src/soft/scenes.tsx)
 
 អក្សរខ្មែរទាំងអស់ដែលបង្ហាញលើអេក្រង់ តាម scene នីមួយៗ។ ចុចលើលេខបន្ទាត់ (Line) ដើម្បីបើកកន្លែងកែក្នុងកូដ។
 All on-screen Khmer text, scene by scene. Click a line number to open the exact place to edit.
@@ -29,54 +29,56 @@ All on-screen Khmer text, scene by scene. Click a line number to open the exact 
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [145](../../src/soft/scenes.tsx#L145) | គ្រាប់ពូជកាហ្វេអារ៉ាប៊ីកា | List / card item |
-| [146](../../src/soft/scenes.tsx#L146) | គ្រាប់ពូជកាហ្វេរ៉ូបាស្ដា | List / card item |
-| [147](../../src/soft/scenes.tsx#L147) | ខ្ញីបេនតុង | List / card item |
-| [148](../../src/soft/scenes.tsx#L148) | ស្ករត្នោតធម្មជាតិ | List / card item |
-| [149](../../src/soft/scenes.tsx#L149) | គ្រីមធម្មជាតិ | List / card item |
+| [160](../../src/soft/scenes.tsx#L160) | គ្រាប់ពូជកាហ្វេអារ៉ាប៊ីកា | List / card item |
+| [161](../../src/soft/scenes.tsx#L161) | គ្រាប់ពូជកាហ្វេរ៉ូបាស្ដា | List / card item |
+| [162](../../src/soft/scenes.tsx#L162) | ខ្ញីបេនតុង | List / card item |
+| [163](../../src/soft/scenes.tsx#L163) | ស្ករត្នោតធម្មជាតិ | List / card item |
+| [164](../../src/soft/scenes.tsx#L164) | គ្រីមធម្មជាតិ | List / card item |
 
-## 5 · "ក្លិនឈ្ងុយ" — 13.84 – 17.84 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [204](../../src/soft/scenes.tsx#L204) | ក្លិនឈ្ងុយ | Headline |
-
-## 6 · "រសជាតិឆ្ងាញ់" — 17.84 – 20.51 s
+## 5 · "ក្លិនឈ្ងុយ" — 13.84 – 16.51 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [237](../../src/soft/scenes.tsx#L237) | រសជាតិឆ្ងាញ់ | Headline |
+| [230](../../src/soft/scenes.tsx#L230) | ក្លិនឈ្ងុយ | Headline |
 
-## 7 · "ប្រេនកូនខ្មែរ" + "ផលិតនៅប្រទេសម៉ាឡេសុី" — 20.51 – 23.17 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [251](../../src/soft/scenes.tsx#L251) | ប្រេនកូនខ្មែរ | Headline |
-| [253](../../src/soft/scenes.tsx#L253) | ផលិតនៅប្រទេសម៉ាឡេសុី | Headline |
-
-## 8 · "ញាំមិនឆ្ងាញ់ / ធានាប្ដូរលុយវិញ" — 23.17 – 25.84 s
+## 6 · "រសជាតិឆ្ងាញ់" — 16.51 – 19.17 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [296](../../src/soft/scenes.tsx#L296) | ញាំមិនឆ្ងាញ់ | Headline |
-| [297](../../src/soft/scenes.tsx#L297) | ធានាប្ដូរលុយវិញ | Headline |
+| [263](../../src/soft/scenes.tsx#L263) | រសជាតិឆ្ងាញ់ | Headline |
 
-## 9 · How to brew — 25.84 – 29.84 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [435](../../src/soft/scenes.tsx#L435) | ឆុងអោយបានឆ្ងាញ់ | Headline |
-| [436](../../src/soft/scenes.tsx#L436) | 1កញ្ចប់ដាក់ទឹកពី60_70ml | Button (CTA) |
-
-## 10 · Final — 29.84 – 34.00 s
+## 7 · "ប្រេនកូនខ្មែរ" + "ផលិតនៅប្រទេសម៉ាឡេសុី" — 19.17 – 21.84 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [451](../../src/soft/scenes.tsx#L451) | បញ្ជាទិញឥឡូវនេះ | Button (CTA) |
+| [300](../../src/soft/scenes.tsx#L300) | ប្រេនកូនខ្មែរ | Headline |
+| [303](../../src/soft/scenes.tsx#L303) | ផលិតនៅប្រទេសម៉ាឡេសុី | Headline |
+
+## 8 · "ញាំមិនឆ្ងាញ់ / ធានាប្ដូរលុយវិញ" — 21.84 – 24.51 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [346](../../src/soft/scenes.tsx#L346) | ញាំមិនឆ្ងាញ់ | Headline |
+| [347](../../src/soft/scenes.tsx#L347) | ធានាប្ដូរលុយវិញ | Headline |
+
+## 9 · How to brew — 24.51 – 27.17 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [504](../../src/soft/scenes.tsx#L504) | ឆុងអោយបានឆ្ងាញ់ | Headline |
+| [506](../../src/soft/scenes.tsx#L506) | 1កញ្ចប់ | Headline |
+| [508](../../src/soft/scenes.tsx#L508) | ដាក់ទឹកពី60_70ml | Headline |
+
+## 10 · Final — 27.17 – 30.00 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [531](../../src/soft/scenes.tsx#L531) | បទពិសោធន៍ថ្មី កាហ្វេខ្ញី 5IN1 | Headline |
+| [532](../../src/soft/scenes.tsx#L532) | បញ្ជាទិញឥឡូវនេះ | Button (CTA) |
 
 ---
 
-**19 Khmer text items.**
+**21 Khmer text items.**
 
 ### Editing notes
 

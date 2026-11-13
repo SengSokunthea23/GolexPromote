@@ -8,6 +8,7 @@ import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/500-italic.css';
 import '@fontsource/cormorant-garamond/600-italic.css';
 import '@fontsource/bodoni-moda/700.css';
+import '@fontsource/cinzel/900.css';
 import '@fontsource/manrope/500.css';
 import '@fontsource/manrope/600.css';
 import { continueRender, delayRender } from 'remotion';
@@ -41,7 +42,7 @@ export const RUBY_INK = `linear-gradient(180deg, ${SC.ruby} 0%, ${SC.burgundy} 1
  *  sans     Manrope            — English uppercase micro labels
  */
 export const SF = {
-  brand: '"Bodoni Moda", "Playfair Display", Georgia, serif',
+  brand: 'Cinzel, "Bodoni Moda", "Playfair Display", Georgia, serif',
   khSerif: 'Hanuman, "Kantumruy Pro", serif',
   khSans: '"Kantumruy Pro", "Noto Sans Khmer", sans-serif',
   serif: '"Cormorant Garamond", "Playfair Display", Georgia, serif',
@@ -64,6 +65,7 @@ export const loadSoftFonts = () => {
     document.fonts.load('italic 500 40px "Cormorant Garamond"', 'Golden'),
     document.fonts.load('italic 600 40px "Cormorant Garamond"', 'Golden'),
     document.fonts.load('700 40px "Bodoni Moda"', 'GOLEX'),
+    document.fonts.load('900 40px Cinzel', 'GOLEX'),
     document.fonts.load('500 40px Manrope', 'GOLEX'),
     document.fonts.load('600 40px Manrope', 'GOLEX'),
   ])
