@@ -1,6 +1,6 @@
 # GolexSoftLux — Soft Luxury Edition
 
-Composition **GolexSoftLux** · 31 s · music: Golden Lounge · source: [src/soft/scenes.tsx](../../src/soft/scenes.tsx)
+Composition **GolexSoftLux** · 34 s · music: Golden Lounge · source: [src/soft/scenes.tsx](../../src/soft/scenes.tsx)
 
 អក្សរខ្មែរទាំងអស់ដែលបង្ហាញលើអេក្រង់ តាម scene នីមួយៗ។ ចុចលើលេខបន្ទាត់ (Line) ដើម្បីបើកកន្លែងកែក្នុងកូដ។
 All on-screen Khmer text, scene by scene. Click a line number to open the exact place to edit.
@@ -9,81 +9,74 @@ All on-screen Khmer text, scene by scene. Click a line number to open the exact 
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [29](../../src/soft/scenes.tsx#L29) | បទពិសោធន៍ថ្មី | Headline |
-| [30](../../src/soft/scenes.tsx#L30) | កាហ្វេខ្ញី 5IN1 | Headline |
+| [80](../../src/soft/scenes.tsx#L80) | ឥឡូវនេះមានចេញ | Headline |
+| [82](../../src/soft/scenes.tsx#L82) | មួយរសជាតិថ្មីទៀតហេីយ | Headline |
 
-## 2 · Split — 3.17 – 5.84 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [52](../../src/soft/scenes.tsx#L52) | ស្វែងរក | Headline |
-| [53](../../src/soft/scenes.tsx#L53) | ពេលវេលា | Headline |
-| [54](../../src/soft/scenes.tsx#L54) | ដ៏ពិសេស | Headline |
-| [60](../../src/soft/scenes.tsx#L60) | ២៥ កញ្ចប់ × ១៩ក្រាម | Glass card text |
-| [61](../../src/soft/scenes.tsx#L61) | ទម្ងន់សុទ្ធ ៤៧៥ក្រាម | Glass card text |
-
-## 3 · Macro — 5.84 – 8.51 s
+## 2 · What it is — 3.17 – 5.84 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [88](../../src/soft/scenes.tsx#L88) | កាហ្វេខ្ញី ៥ ក្នុង ១ | Headline |
-| [89](../../src/soft/scenes.tsx#L89) | ខាប់ និងឈ្ងុយឆ្ងាញ់ · កក់ក្តៅ និងផ្តល់ថាមពល | Headline |
+| [101](../../src/soft/scenes.tsx#L101) | គឺកាហ្វេGolex | Headline |
+| [104](../../src/soft/scenes.tsx#L104) | (កាហ្វេខ្ញី) | Headline |
 
-## 4 · Cup — 8.51 – 12.51 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [115](../../src/soft/scenes.tsx#L115) | ឈ្ងុយឆ្ងាញ់ | Headline |
-| [116](../../src/soft/scenes.tsx#L116) | គ្រប់ ការក្រេប | Headline |
-
-## 5 · Texture — 12.51 – 15.17 s
+## 3 · "ដែលរួមផ្សំពី" — 5.84 – 8.51 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [135](../../src/soft/scenes.tsx#L135) | ក្លិនក្រអូប  ·  ខាប់  ·  ឆ្ងាញ់ | Label |
-| [151](../../src/soft/scenes.tsx#L151) | ខ្ញីស្រស់ · កាហ្វេល្អ | Headline |
+| [128](../../src/soft/scenes.tsx#L128) | ដែលរួមផ្សំពី | Headline |
 
-## 6 · Ingredients — 15.17 – 20.51 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [160](../../src/soft/scenes.tsx#L160) | ខ្ញីបេនតុង | List / card item |
-| [160](../../src/soft/scenes.tsx#L160) | កក់ក្តៅ និងផ្តល់ថាមពល | List / card item |
-| [161](../../src/soft/scenes.tsx#L161) | គ្រាប់កាហ្វេ | List / card item |
-| [161](../../src/soft/scenes.tsx#L161) | ឈ្ងុយ និងខាប់ | List / card item |
-| [162](../../src/soft/scenes.tsx#L162) | ស្ករត្នោត | List / card item |
-| [162](../../src/soft/scenes.tsx#L162) | ផ្អែមឈ្ងុយ | List / card item |
-| [199](../../src/soft/scenes.tsx#L199) | ផលិតពីខ្ញីបេនតុង | Headline |
-| [200](../../src/soft/scenes.tsx#L200) | គុណភាពខ្ពស់ | Headline |
-| [207](../../src/soft/scenes.tsx#L207) | ខ្ញី · កាហ្វេ · ស្ករត្នោត | Label |
-
-## 7 · Lifestyle — 20.51 – 23.17 s
+## 4 · Ingredients — 8.51 – 13.84 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [222](../../src/soft/scenes.tsx#L222) | ពេលវេលា | Headline |
-| [223](../../src/soft/scenes.tsx#L223) | ដ៏កក់ក្តៅ | Headline |
-| [233](../../src/soft/scenes.tsx#L233) | ប្រចាំថ្ងៃរបស់អ្នក | Headline |
+| [145](../../src/soft/scenes.tsx#L145) | គ្រាប់ពូជកាហ្វេអារ៉ាប៊ីកា | List / card item |
+| [146](../../src/soft/scenes.tsx#L146) | គ្រាប់ពូជកាហ្វេរ៉ូបាស្ដា | List / card item |
+| [147](../../src/soft/scenes.tsx#L147) | ខ្ញីបេនតុង | List / card item |
+| [148](../../src/soft/scenes.tsx#L148) | ស្ករត្នោតធម្មជាតិ | List / card item |
+| [149](../../src/soft/scenes.tsx#L149) | គ្រីមធម្មជាតិ | List / card item |
 
-## 8 · Highlights — 23.17 – 25.84 s
-
-| Line | Khmer text | Element |
-|---|---|---|
-| [240](../../src/soft/scenes.tsx#L240) | គ្មានជាតិខ្លាញ់ | List / card item |
-| [241](../../src/soft/scenes.tsx#L241) | គ្មានសារធាតុបន្ថែម | List / card item |
-| [270](../../src/soft/scenes.tsx#L270) | ជម្រើសល្អ | Headline |
-| [271](../../src/soft/scenes.tsx#L271) | សម្រាប់រាល់ថ្ងៃ | Headline |
-
-## 9 · Final — 25.84 – 31.00 s
+## 5 · "ក្លិនឈ្ងុយ" — 13.84 – 17.84 s
 
 | Line | Khmer text | Element |
 |---|---|---|
-| [294](../../src/soft/scenes.tsx#L294) | បទពិសោធន៍ថ្មី កាហ្វេខ្ញី 5IN1 | Headline |
-| [296](../../src/soft/scenes.tsx#L296) | បញ្ជាទិញឥឡូវនេះ | Button (CTA) |
+| [204](../../src/soft/scenes.tsx#L204) | ក្លិនឈ្ងុយ | Headline |
+
+## 6 · "រសជាតិឆ្ងាញ់" — 17.84 – 20.51 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [237](../../src/soft/scenes.tsx#L237) | រសជាតិឆ្ងាញ់ | Headline |
+
+## 7 · "ប្រេនកូនខ្មែរ" + "ផលិតនៅប្រទេសម៉ាឡេសុី" — 20.51 – 23.17 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [251](../../src/soft/scenes.tsx#L251) | ប្រេនកូនខ្មែរ | Headline |
+| [253](../../src/soft/scenes.tsx#L253) | ផលិតនៅប្រទេសម៉ាឡេសុី | Headline |
+
+## 8 · "ញាំមិនឆ្ងាញ់ / ធានាប្ដូរលុយវិញ" — 23.17 – 25.84 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [296](../../src/soft/scenes.tsx#L296) | ញាំមិនឆ្ងាញ់ | Headline |
+| [297](../../src/soft/scenes.tsx#L297) | ធានាប្ដូរលុយវិញ | Headline |
+
+## 9 · How to brew — 25.84 – 29.84 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [435](../../src/soft/scenes.tsx#L435) | ឆុងអោយបានឆ្ងាញ់ | Headline |
+| [436](../../src/soft/scenes.tsx#L436) | 1កញ្ចប់ដាក់ទឹកពី60_70ml | Button (CTA) |
+
+## 10 · Final — 29.84 – 34.00 s
+
+| Line | Khmer text | Element |
+|---|---|---|
+| [451](../../src/soft/scenes.tsx#L451) | បញ្ជាទិញឥឡូវនេះ | Button (CTA) |
 
 ---
 
-**31 Khmer text items.**
+**19 Khmer text items.**
 
 ### Editing notes
 

@@ -30,7 +30,6 @@ m.ambience(0.025);
 
 /* 01 open */
 m.bloom(0.3, 0.6, 0.08);
-m.tick(0.12, 0.05);
 giant(0.2, -0.3); //                                   "Ginger"
 m.pop(0.15, 520, 0.12); //                              ruby shape blooms
 m.pop(O(0) + 0.05, 620, 0.1); //                        "បទពិសោធន៍ថ្មី"

@@ -3,9 +3,9 @@ import { AbsoluteFill, Audio, Sequence, interpolate, staticFile, useVideoConfig 
 import { FilmGrain } from '../components/FilmGrain';
 import { useTime } from '../lib/useTime';
 import { Box, FineDust, Shell } from './kit';
-import { CupScene, FinalScene, HighlightsScene, IngredientsScene, MacroScene, Model1Scene, OpenScene, SceneProps, SplitScene, TextureScene } from './scenes';
+import { BrewScene, CupScene, FinalScene, HighlightsScene, IngredientsScene, MacroScene, Model1Scene, OpenScene, SceneProps, SplitScene, TextureScene } from './scenes';
 import { SC, loadSoftFonts, rgba } from './theme';
-import { MUSIC, MUSIC_TRIM, S_OVERLAP, S_SCENES, beats } from './timeline';
+import { MUSIC, MUSIC_TRIM, S_OVERLAP, S_SCENES } from './timeline';
 
 loadSoftFonts();
 
@@ -19,7 +19,7 @@ const XF = 4; // crossfade frames at the loop point
  */
 const CUT_TIMES = S_SCENES.slice(1).map((s) => s.from);
 const FINAL = S_SCENES[S_SCENES.length - 1];
-const LOGO_T = FINAL.from + beats(FINAL.pace)(2) + 1.2; // final scene: logo arrives on beat 2, sweep +1.2 s
+const LOGO_T = FINAL.from + 1.15; // final scene: logo light sweep
 const duck = (t: number) => {
   let d = 0;
   for (const c of CUT_TIMES) d = Math.max(d, 0.45 * Math.exp(-(((t - c) / (t < c ? 0.35 : 0.5)) ** 2)));
@@ -36,6 +36,7 @@ const MAP: Record<string, React.FC<SceneProps>> = {
   ingredients: IngredientsScene,
   model1: Model1Scene,
   highlights: HighlightsScene,
+  brew: BrewScene,
   final: FinalScene,
 };
 
@@ -47,7 +48,8 @@ const STAGE: Record<string, { from?: Box; origin?: [number, number] }> = {
   texture: { origin: [540, 900] },
   model1: { from: { x: 340, y: 640, w: 680, h: 1190, r: 340 }, origin: [680, 1200] },
   highlights: { origin: [740, 1120] },
-  final: { origin: [540, 1000] },
+  brew: { origin: [480, 1150] },
+  final: { origin: [540, 820] },
 };
 
 /** Barely-there handheld drift so no frame is ever static. */
@@ -88,16 +90,16 @@ export const SoftCommercial: React.FC = () => {
         /* Music: "Golden Lounge" played straight through to its own ending. */
         <Audio src={SONG} trimBefore={Math.round(MUSIC_TRIM * fps)} volume={(f) => VOL * duck(f / fps) * interpolate(f, [0, 6, durationInFrames - 30, durationInFrames - 1], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })} />
       ) : (
-        /* Music extended by a bar-aligned loop: source 0 → jumpAt, then source resumeFrom → end. */
+        /* Music extended by a bar-aligned loop: plays to video jumpAt, then continues from the music at video resumeFrom. */
         <>
           <Sequence durationInFrames={jump + XF} name="music A">
-            <Audio src={SONG} volume={(f) => VOL * interpolate(f, [0, 8, jump, jump + XF], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })} />
+            <Audio src={SONG} trimBefore={Math.round(MUSIC_TRIM * fps)} volume={(f) => VOL * duck(f / fps) * interpolate(f, [0, 6, jump, jump + XF], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })} />
           </Sequence>
           <Sequence from={jump} name="music B (loop)">
             <Audio
               src={SONG}
-              trimBefore={Math.round(MUSIC.resumeFrom * fps)}
-              volume={(f) => VOL * interpolate(f, [0, XF, durationInFrames - jump - 75, durationInFrames - jump - 1], [0.35, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })}
+              trimBefore={Math.round((MUSIC.resumeFrom + MUSIC_TRIM) * fps)}
+              volume={(f) => VOL * duck((f + jump) / fps) * interpolate(f, [0, XF, durationInFrames - jump - 45, durationInFrames - jump - 1], [0.35, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' })}
             />
           </Sequence>
         </>

@@ -28,11 +28,9 @@ export const OpenScene: React.FC<SceneProps> = ({ L, t0 }) => {
       <Ring cx={800} cy={1460} r={380} start={0.5} end={E} />
       <Float src={spr('slice.png')} x={790} y={1430} w={230} start={B0(1) + 0.2} end={E} dy={-120} rot={-14} edge z={4} />
       <Float src={spr('bean2.png')} x={220} y={1620} w={120} start={B0(2)} end={E} dy={-80} rot={30} z={4} phase={2} />
-      <Caption text="GOLEX  ·  PREMIUM QUALITY" y={230} start={0.1} end={E} />
       <Words text="បទពិសោធន៍ថ្មី" y={310} start={B0(0)} end={E} size={96} tone="espresso" />
       <Words text="កាហ្វេខ្ញី 5IN1" y={460} start={B0(1)} end={E} size={150} weight={900} tone="ruby" mode="scale" />
       <Underline x={300} y={770} w={480} start={B0(2)} end={E} />
-      <Words text="The|Golden|Ginger|Experience" y={792} start={B0(2) + 0.1} end={E} font="serif" size={54} weight={500} italic tone="burgundy" stagger={0.08} gap={14} />
     </>
   );
 };
